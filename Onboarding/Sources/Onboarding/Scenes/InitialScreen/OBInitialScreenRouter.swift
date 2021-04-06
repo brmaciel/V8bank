@@ -31,6 +31,22 @@ public class OBInitialScreenRouter {
     
     // MARK: - Routing
     
+    func goToNewLogin() {
+        let destinationVC = NewLoginRouter.createModule(coordinator: self)
+        view?.present(destinationVC, animated: true, completion: nil)
+    }
     
-    
+}
+
+extension OBInitialScreenRouter: OBCoordinator {
+    func didEnterCPF(_ cpf: String) {
+        let destinationVC = OBEnterLoginPasswordRouter.createModule()
+        view?.present(destinationVC, animated: true, completion: nil)
+    }
+}
+
+
+// TODO: Review coordinator strategy
+protocol OBCoordinator {
+    func didEnterCPF(_ cpf: String)
 }

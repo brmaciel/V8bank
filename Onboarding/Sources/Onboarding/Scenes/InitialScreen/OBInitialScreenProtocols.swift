@@ -9,7 +9,7 @@ import Foundation
 
 /// View -> Interactor
 protocol OBInitialScreenInteractorProtocol: AnyObject {
-    
+    func accessMyAccount()
 }
 
 /// Interactor -> Presenter

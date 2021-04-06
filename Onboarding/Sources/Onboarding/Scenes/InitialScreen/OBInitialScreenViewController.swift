@@ -71,8 +71,7 @@ class OBInitialScreenViewController: UIViewController {
     }
     
     @IBAction func tapAccessAccountButton(_ sender: UIButton) {
-        // TODO: Go to login
-        print("access account")
+        interactor?.accessMyAccount()
     }
     
 }

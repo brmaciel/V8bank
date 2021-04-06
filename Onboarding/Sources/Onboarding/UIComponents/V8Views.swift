@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BorderedView: UIView {
+@IBDesignable class BorderedView: UIView {
     @IBInspectable var cornerRadius: CGFloat {
         get { return layer.cornerRadius }
         set { layer.cornerRadius = newValue }

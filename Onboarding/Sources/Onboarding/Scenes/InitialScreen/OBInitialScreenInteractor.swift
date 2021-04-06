@@ -22,5 +22,8 @@ class OBInitialScreenInteractor {
 
 // MARK: - Access from View
 extension OBInitialScreenInteractor: OBInitialScreenInteractorProtocol {
-    
+    func accessMyAccount() {
+        // TODO: Check if has account data saved locally
+        router?.goToNewLogin()
+    }
 }

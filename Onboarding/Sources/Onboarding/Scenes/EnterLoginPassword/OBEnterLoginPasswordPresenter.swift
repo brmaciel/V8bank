@@ -21,5 +21,13 @@ class OBEnterLoginPasswordPresenter {
 
 // MARK: - Access from Interactor
 extension OBEnterLoginPasswordPresenter: OBEnterLoginPasswordPresenterProtocol {
+    func presentPassword(response: OBEnterLoginPasswordModels.Response) {
+        let viewModel = OBEnterLoginPasswordModels.ViewModel(passwordLength: response.password.count)
+        view?.showCurrentPassword(viewModel: viewModel)
+    }
     
+    func completedPassword() {
+        view?.completedPassword()
+    }
+
 }
