@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		B9138955261C93C1001EC158 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9138953261C93C1001EC158 /* LaunchScreen.storyboard */; };
 		B9138960261C93C2001EC158 /* v8bankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913895F261C93C2001EC158 /* v8bankTests.swift */; };
 		B913896B261C93C2001EC158 /* v8bankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913896A261C93C2001EC158 /* v8bankUITests.swift */; };
+		B9138993261CA4CD001EC158 /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = B9138992261CA4CD001EC158 /* Onboarding */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B9138966261C93C2001EC158 /* v8bankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = v8bankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B913896A261C93C2001EC158 /* v8bankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v8bankUITests.swift; sourceTree = "<group>"; };
 		B913896C261C93C2001EC158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9138988261CA3AD001EC158 /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Onboarding; path = ../Onboarding; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9138993261CA4CD001EC158 /* Onboarding in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +84,12 @@
 		B9138939261C93BE001EC158 = {
 			isa = PBXGroup;
 			children = (
+				B9138988261CA3AD001EC158 /* Onboarding */,
 				B9138944261C93BE001EC158 /* v8bank */,
 				B913895E261C93C2001EC158 /* v8bankTests */,
 				B9138969261C93C2001EC158 /* v8bankUITests */,
 				B9138943261C93BE001EC158 /* Products */,
+				B913898C261CA3F4001EC158 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +106,7 @@
 		B9138944261C93BE001EC158 /* v8bank */ = {
 			isa = PBXGroup;
 			children = (
+				B91B0C24261CA8AF00329B05 /* New Group */,
 				B9138945261C93BE001EC158 /* AppDelegate.swift */,
 				B9138947261C93BE001EC158 /* SceneDelegate.swift */,
 				B9138949261C93BE001EC158 /* ViewController.swift */,
@@ -131,6 +137,20 @@
 			path = v8bankUITests;
 			sourceTree = "<group>";
 		};
+		B913898C261CA3F4001EC158 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B91B0C24261CA8AF00329B05 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,6 +167,9 @@
 			dependencies = (
 			);
 			name = v8bank;
+			packageProductDependencies = (
+				B9138992261CA4CD001EC158 /* Onboarding */,
+			);
 			productName = v8bank;
 			productReference = B9138942261C93BE001EC158 /* v8bank.app */;
 			productType = "com.apple.product-type.application";
@@ -599,6 +622,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B9138992261CA4CD001EC158 /* Onboarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Onboarding;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B913894E261C93BE001EC158 /* v8bank.xcdatamodeld */ = {
