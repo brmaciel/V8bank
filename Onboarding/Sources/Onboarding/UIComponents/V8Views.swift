@@ -13,8 +13,8 @@ class BorderedView: UIView {
         set { layer.cornerRadius = newValue }
     }
     
-    @IBInspectable var borderColor: UIColor? {
-        willSet { layer.borderColor = newValue?.cgColor }
+    @IBInspectable var borderColor: UIColor = .clear {
+        willSet { layer.borderColor = newValue.cgColor }
     }
     
     @IBInspectable var borderWidth: CGFloat = 1.0 {

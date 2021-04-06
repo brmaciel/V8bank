@@ -21,5 +21,15 @@ class NewLoginPresenter {
 
 // MARK: - Access from Interactor
 extension NewLoginPresenter: NewLoginPresenterProtocol {
+    func presentEmptyCPF() {
+        view?.showEmptyCPF()
+    }
     
+    func presentInvalidCPF() {
+        view?.showInvalidCPF()
+    }
+    
+    func presentValidCPF() {
+        view?.showValidCPF()
+    }
 }

@@ -121,6 +121,7 @@
                     </view>
                     <connections>
                         <outlet property="btn_enter" destination="CYh-Ib-PMu" id="fRe-hs-dIo"/>
+                        <outlet property="constraint_bottomToCardBottom" destination="4yW-xE-fH1" id="vgk-Ep-vFT"/>
                         <outlet property="field_cpf" destination="tFR-Hc-gDA" id="Kbg-4O-6mr"/>
                         <outlet property="lb_cpf" destination="OOW-jJ-l7O" id="qUX-we-gEl"/>
                         <outlet property="view_card" destination="mdH-tV-Rf5" id="CvP-5G-QLO"/>

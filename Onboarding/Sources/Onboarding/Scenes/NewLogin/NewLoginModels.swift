@@ -11,7 +11,7 @@ enum NewLoginModels {
     
     /// Object passed from View to Interactor
     struct Request {
-        
+        let cpf: String?
     }
     
     /// Object passed from Interactor to Presenter

@@ -31,6 +31,8 @@ class NewLoginRouter {
     
     // MARK: - Routing
     
-    
+    func dismissView() {
+        view?.dismiss(animated: true, completion: nil)
+    }
     
 }
