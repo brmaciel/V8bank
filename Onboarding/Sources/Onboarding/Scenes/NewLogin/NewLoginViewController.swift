@@ -38,9 +38,8 @@ class NewLoginViewController: UIViewController {
         if isSettingUp {
             UIView.animate(withDuration: 0.3) {
                 self.view.backgroundColor = UIColor.black.withAlphaComponent(0.25)
-            } completion: { _ in
-                self.field_cpf.becomeFirstResponder()
             }
+            self.field_cpf.becomeFirstResponder()
         }
         isSettingUp = false
     }
@@ -73,7 +72,8 @@ class NewLoginViewController: UIViewController {
     // MARK: - Button Actions
     
     @IBAction func tapEnterButton(_ sender: UIButton) {
-        print("enter")
+        let request = NewLoginModels.Request(cpf: field_cpf.text?.trimmingCharacters(in: .whitespaces))
+        interactor?.enter(request: request)
     }
     
     @IBAction func tapBackButton(_ sender: UIButton) {

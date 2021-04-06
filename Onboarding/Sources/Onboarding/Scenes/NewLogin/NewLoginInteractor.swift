@@ -90,6 +90,18 @@ extension NewLoginInteractor: NewLoginInteractorProtocol {
         catch {}
     }
     
+    func enter(request: NewLoginModels.Request) {
+        do {
+            let validCPF = try validateCPF(request.cpf)
+            
+            let dataStore = NewLoginModels.DataStore(cpf: validCPF)
+            router?.proceedWithLoginProcess(data: dataStore)
+        }
+        catch ValidationError.emptyCPF { presenter?.presentEmptyCPF() }
+        catch ValidationError.invalidCPF { presenter?.presentInvalidCPF() }
+        catch {}
+    }
+    
     func closeScreen() {
         router?.dismissView()
     }

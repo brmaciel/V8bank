@@ -10,6 +10,7 @@ import Foundation
 /// View -> Interactor
 protocol NewLoginInteractorProtocol: AnyObject {
     func validateInput(request: NewLoginModels.Request)
+    func enter(request: NewLoginModels.Request)
     func closeScreen()
 }
 
