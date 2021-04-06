@@ -46,8 +46,19 @@ class V8ConfirmButton: V8MainButton {
     final fileprivate override func setupView() {
         super.setupView()
         
-        backgroundColor = UIColor(red: 254/255, green: 208/255, blue: 49/255, alpha: 1.0)
+        backgroundColor = UIColor.v8yellow
         setTitleColor(.black, for: .normal)
+        setTitleColor(UIColor.v8darkGrayText, for: .disabled)
+    }
+    
+    func enable() {
+        isEnabled = true
+        backgroundColor = UIColor.v8yellow
+    }
+    
+    func disable() {
+        isEnabled = false
+        backgroundColor = UIColor.v8disabledButtonBackground
     }
     
 }
@@ -70,9 +81,9 @@ class V8AuxiliaryButton: V8MainButton {
         super.setupView()
         
         layer.borderWidth = 1
-        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderColor = UIColor.v8lightGray.cgColor
         
-        setTitleColor(.darkGray, for: .normal)
+        setTitleColor(.v8darkGrayText, for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .medium)
     }
     
