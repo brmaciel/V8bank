@@ -17,6 +17,7 @@
 		B913896B261C93C2001EC158 /* v8bankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913896A261C93C2001EC158 /* v8bankUITests.swift */; };
 		B9138993261CA4CD001EC158 /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = B9138992261CA4CD001EC158 /* Onboarding */; };
 		B9C3B99C261E41B1004024DA /* V8InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3B99B261E41B1004024DA /* V8InitialViewController.swift */; };
+		B9C3B9AB261E4C3F004024DA /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = B9C3B9AA261E4C3F004024DA /* CommonUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B913896C261C93C2001EC158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9138988261CA3AD001EC158 /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Onboarding; path = ../Onboarding; sourceTree = "<group>"; };
 		B9C3B99B261E41B1004024DA /* V8InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V8InitialViewController.swift; sourceTree = "<group>"; };
+		B9C3B9A6261E4BE5004024DA /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CommonUI; path = ../CommonUI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9138993261CA4CD001EC158 /* Onboarding in Frameworks */,
+				B9C3B9AB261E4C3F004024DA /* CommonUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +87,7 @@
 		B9138939261C93BE001EC158 = {
 			isa = PBXGroup;
 			children = (
+				B9C3B9A6261E4BE5004024DA /* CommonUI */,
 				B9138988261CA3AD001EC158 /* Onboarding */,
 				B9138944261C93BE001EC158 /* v8bank */,
 				B913895E261C93C2001EC158 /* v8bankTests */,
@@ -169,6 +173,7 @@
 			name = v8bank;
 			packageProductDependencies = (
 				B9138992261CA4CD001EC158 /* Onboarding */,
+				B9C3B9AA261E4C3F004024DA /* CommonUI */,
 			);
 			productName = v8bank;
 			productReference = B9138942261C93BE001EC158 /* v8bank.app */;
@@ -627,6 +632,10 @@
 		B9138992261CA4CD001EC158 /* Onboarding */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Onboarding;
+		};
+		B9C3B9AA261E4C3F004024DA /* CommonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 

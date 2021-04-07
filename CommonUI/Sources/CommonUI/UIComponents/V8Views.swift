@@ -1,30 +1,30 @@
 //
-//  File.swift
+//  V8Views.swift
 //  
 //
-//  Created by Bruno Maciel on 4/6/21.
+//  Created by Bruno Maciel on 4/7/21.
 //
 
 import UIKit
 
-@IBDesignable class BorderedView: UIView {
-    @IBInspectable var cornerRadius: CGFloat {
+@IBDesignable public class BorderedView: UIView {
+    @IBInspectable public var cornerRadius: CGFloat {
         get { return layer.cornerRadius }
         set { layer.cornerRadius = newValue }
     }
     
-    @IBInspectable var borderColor: UIColor = .clear {
+    @IBInspectable public var borderColor: UIColor = .clear {
         willSet { layer.borderColor = newValue.cgColor }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 1.0 {
+    @IBInspectable public var borderWidth: CGFloat = 1.0 {
         willSet { layer.borderWidth = newValue }
     }
     
 }
 
 
-class UpperRoundedCard: UIView {
+public class UpperRoundedCard: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         

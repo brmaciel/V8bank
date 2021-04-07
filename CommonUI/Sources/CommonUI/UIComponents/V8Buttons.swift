@@ -2,12 +2,12 @@
 //  V8Buttons.swift
 //  
 //
-//  Created by Bruno Maciel on 4/6/21.
+//  Created by Bruno Maciel on 4/7/21.
 //
 
 import UIKit
 
-class V8MainButton: UIButton {
+public class V8MainButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +29,7 @@ class V8MainButton: UIButton {
     
 }
 
-class V8ConfirmButton: V8MainButton {
+public class V8ConfirmButton: V8MainButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,19 +51,19 @@ class V8ConfirmButton: V8MainButton {
         setTitleColor(UIColor.v8darkGrayText, for: .disabled)
     }
     
-    func enable() {
+    public func enable() {
         isEnabled = true
         backgroundColor = UIColor.v8yellow
     }
     
-    func disable() {
+    public func disable() {
         isEnabled = false
         backgroundColor = UIColor.v8disabledButtonBackground
     }
     
 }
 
-class V8AuxiliaryButton: V8MainButton {
+public class V8AuxiliaryButton: V8MainButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

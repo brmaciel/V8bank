@@ -50,7 +50,7 @@ extension OBInitialScreenRouter: OBLoginCoordinator {
     }
     
     func didLogin() {
-        view?.dismiss(animated: true, completion: {
+        view?.dismiss(animated: false, completion: {
             NotificationCenter.default.post(name: NSNotification.Name("onboarding.didLogin"), object: nil)
         })
     }

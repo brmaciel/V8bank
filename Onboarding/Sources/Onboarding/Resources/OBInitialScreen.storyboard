@@ -50,7 +50,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="fUl-ec-HnA">
                                 <rect key="frame" x="16" y="678" width="343" height="84"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGm-ZO-bKX" customClass="V8ConfirmButton" customModule="Onboarding">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGm-ZO-bKX" customClass="V8ConfirmButton" customModule="CommonUI">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <state key="normal" title="ABRIR CONTA">
@@ -60,7 +60,7 @@
                                             <action selector="tapOpenAccountButton:" destination="fFE-ah-w8j" eventType="touchUpInside" id="gje-H6-Dhv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6Y-St-Hcp" customClass="V8AuxiliaryButton" customModule="Onboarding">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6Y-St-Hcp" customClass="V8AuxiliaryButton" customModule="CommonUI">
                                         <rect key="frame" x="0.0" y="54" width="343" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <state key="normal" title="ACESSAR MINHA CONTA">
