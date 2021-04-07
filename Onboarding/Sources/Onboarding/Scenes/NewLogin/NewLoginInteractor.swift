@@ -74,7 +74,6 @@ class NewLoginInteractor {
         return cpfString
     }
     
-    
 }
 
 
@@ -104,12 +103,5 @@ extension NewLoginInteractor: NewLoginInteractorProtocol {
     
     func closeScreen() {
         router?.dismissView()
-    }
-}
-
-
-extension String {
-    fileprivate func at(_ i: Int) -> Character {
-        return self[self.index(self.startIndex, offsetBy: i)]
     }
 }
