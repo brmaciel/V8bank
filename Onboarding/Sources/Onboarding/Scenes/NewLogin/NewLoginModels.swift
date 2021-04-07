@@ -25,7 +25,7 @@ enum NewLoginModels {
     }
     
     /// Data Store
-    struct DataStore {
-        let cpf: String
+    struct DataStore: OBEnterLoginPasswordDependency {
+        var cpf: String
     }
 }

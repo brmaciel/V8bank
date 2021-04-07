@@ -38,15 +38,25 @@ public class OBInitialScreenRouter {
     
 }
 
-extension OBInitialScreenRouter: OBCoordinator {
-    func didEnterCPF(_ cpf: String) {
-        let destinationVC = OBEnterLoginPasswordRouter.createModule()
+extension OBInitialScreenRouter: OBLoginCoordinator {
+    func didEnterCPF(data: OBEnterLoginPasswordDependency) {
+        let destinationVC = OBEnterLoginPasswordRouter.createModule(dependency: data, coordinator: self)
         view?.present(destinationVC, animated: true, completion: nil)
+    }
+    
+    func didLogin() {
+        print("TODO: login user")
     }
 }
 
 
-// TODO: Review coordinator strategy
-protocol OBCoordinator {
-    func didEnterCPF(_ cpf: String)
+// MARK: - Coordinator Interfaces
+protocol OBCoordinator: AnyObject {
+    
+}
+
+/// Manage flow during login
+protocol OBLoginCoordinator: OBCoordinator {
+    func didEnterCPF(data: OBEnterLoginPasswordDependency)
+    func didLogin()
 }

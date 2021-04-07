@@ -10,11 +10,11 @@ import UIKit
 class NewLoginRouter {
     
     weak var view: NewLoginViewController?
-    var coordinator: OBCoordinator!
+    weak var coordinator: OBLoginCoordinator?
     
     
     // MARK: Create Module
-    static func createModule(coordinator: OBCoordinator) -> UIViewController {
+    static func createModule(coordinator: OBLoginCoordinator) -> UIViewController {
         let view = UIStoryboard(name: "NewLogin", bundle: Bundle.module).instantiateInitialViewController() as! NewLoginViewController
         let interactor = NewLoginInteractor()
         let presenter = NewLoginPresenter()
@@ -35,7 +35,7 @@ class NewLoginRouter {
     
     func proceedWithLoginProcess(data: NewLoginModels.DataStore) {
         view?.dismiss(animated: true, completion: {
-            self.coordinator.didEnterCPF(data.cpf)
+            self.coordinator?.didEnterCPF(data: data)
         })
     }
     

@@ -22,12 +22,24 @@ class OBEnterLoginPasswordPresenter {
 // MARK: - Access from Interactor
 extension OBEnterLoginPasswordPresenter: OBEnterLoginPasswordPresenterProtocol {
     func presentPassword(response: OBEnterLoginPasswordModels.Response) {
-        let viewModel = OBEnterLoginPasswordModels.ViewModel(passwordLength: response.password.count)
+        let viewModel = OBEnterLoginPasswordModels.ViewModel.Password(passwordLength: response.password.count)
         view?.showCurrentPassword(viewModel: viewModel)
     }
     
     func completedPassword() {
         view?.completedPassword()
     }
-
+    
+    func startRequest() {
+        view?.startRequest()
+    }
+    
+    func finishRequest() {
+        view?.finishRequest()
+    }
+    
+    func didFailLogin() {
+        let viewModel = OBEnterLoginPasswordModels.ViewModel.ErrorMessage(message: "Falha ao realizar login")
+        view?.showLoginDidFailMessage(viewModel: viewModel)
+    }
 }

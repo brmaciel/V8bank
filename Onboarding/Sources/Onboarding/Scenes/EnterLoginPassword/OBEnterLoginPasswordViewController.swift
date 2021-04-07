@@ -12,6 +12,8 @@ class OBEnterLoginPasswordViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet var view_passwords: [UIView]!
     @IBOutlet weak var field_password: UITextField!
+    @IBOutlet weak var lb_loginFailedMessage: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var constraint_bottomToCardBottom: NSLayoutConstraint!
     
     // MARK: Properties
@@ -83,7 +85,7 @@ class OBEnterLoginPasswordViewController: UIViewController {
 
 // MARK: - Access from Presenter
 extension OBEnterLoginPasswordViewController: OBEnterLoginPasswordPresenterDelegate {
-    func showCurrentPassword(viewModel: OBEnterLoginPasswordModels.ViewModel) {
+    func showCurrentPassword(viewModel: OBEnterLoginPasswordModels.ViewModel.Password) {
         for (index, view) in view_passwords.enumerated() {
             view.backgroundColor = (index < viewModel.passwordLength) ? .black : .clear
         }
@@ -91,6 +93,19 @@ extension OBEnterLoginPasswordViewController: OBEnterLoginPasswordPresenterDeleg
     
     func completedPassword() {
         field_password.resignFirstResponder()
+    }
+    
+    func startRequest() {
+        lb_loginFailedMessage.text = nil
+        activityIndicator.startAnimating()
+    }
+    
+    func finishRequest() {
+        activityIndicator.stopAnimating()
+    }
+    
+    func showLoginDidFailMessage(viewModel: OBEnterLoginPasswordModels.ViewModel.ErrorMessage) {
+        lb_loginFailedMessage.text = viewModel.message
     }
 }
 

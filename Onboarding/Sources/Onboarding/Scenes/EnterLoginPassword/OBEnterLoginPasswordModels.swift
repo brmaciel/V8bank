@@ -20,12 +20,24 @@ enum OBEnterLoginPasswordModels {
     }
     
     /// Object passed from Presenter to View
-    struct ViewModel {
-        let passwordLength: Int
+    enum ViewModel {
+        struct Password {
+            let passwordLength: Int
+        }
+        
+        struct ErrorMessage {
+            let message: String
+        }
     }
     
     /// Data Store
     struct DataStore {
         
     }
+}
+
+
+struct LoginForm: Encodable {
+    var cpf: String
+    var password: String
 }

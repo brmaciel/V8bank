@@ -10,20 +10,24 @@ import UIKit
 class OBEnterLoginPasswordRouter {
     
     weak var view: OBEnterLoginPasswordViewController?
+    weak var coordinator: OBLoginCoordinator?
     
     
     // MARK: Create Module
-    static func createModule() -> UIViewController {
+    static func createModule(dependency: OBEnterLoginPasswordDependency, coordinator: OBLoginCoordinator) -> UIViewController {
         let view = UIStoryboard(name: "OBEnterLoginPassword", bundle: Bundle.module).instantiateInitialViewController() as! OBEnterLoginPasswordViewController
-        let interactor = OBEnterLoginPasswordInteractor()
+        let interactor = OBEnterLoginPasswordInteractor(cpf: dependency.cpf)
         let presenter = OBEnterLoginPasswordPresenter()
         let router = OBEnterLoginPasswordRouter()
+        let worker = OBEnterLoginPasswordWorker()
         
         view.interactor = interactor
         interactor.presenter = presenter
         interactor.router = router
+        interactor.worker = worker
         presenter.view = view
         router.view = view
+        router.coordinator = coordinator
         
         return view
     }
@@ -31,8 +35,16 @@ class OBEnterLoginPasswordRouter {
     
     // MARK: - Routing
     
+    func didLoginWithSuccess() {
+        coordinator?.didLogin()
+    }
+    
     func dismissView() {
         view?.dismiss(animated: true, completion: nil)
     }
     
+}
+
+protocol OBEnterLoginPasswordDependency {
+    var cpf: String { get }
 }

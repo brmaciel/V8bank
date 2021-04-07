@@ -11,9 +11,20 @@ class OBEnterLoginPasswordInteractor {
     
     var presenter: OBEnterLoginPasswordPresenterProtocol?
     var router: OBEnterLoginPasswordRouter?
+    var worker: OBEnterLoginPasswordWorker?
     
-    var currentPassword = ""
+    var loginInfo: LoginForm
+    var currentPassword: String {
+        get { return loginInfo.password }
+        set { loginInfo.password = newValue }
+    }
     let passwordLimitDigits = 6
+    
+    
+    // MARK: Constructor
+    init(cpf: String) {
+        self.loginInfo = LoginForm(cpf: cpf, password: "")
+    }
     
     
     // MARK: - Methods
@@ -24,9 +35,21 @@ class OBEnterLoginPasswordInteractor {
     }
     
     func requestLogin() {
-        
+        presenter?.startRequest()
+        worker?.sendLoginForm(loginInfo) {
+            self.presenter?.finishRequest()
+            self.router?.didLoginWithSuccess()
+        } fail: {
+            self.presenter?.finishRequest()
+            self.manageLoginFailed()
+        }
     }
     
+    func manageLoginFailed() {
+        presenter?.didFailLogin()
+        currentPassword = ""
+        respondPasswordToPresenter()
+    }
     
 }
 
