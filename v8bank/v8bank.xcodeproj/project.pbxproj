@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B9138946261C93BE001EC158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9138945261C93BE001EC158 /* AppDelegate.swift */; };
 		B9138948261C93BE001EC158 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9138947261C93BE001EC158 /* SceneDelegate.swift */; };
-		B913894A261C93BE001EC158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9138949261C93BE001EC158 /* ViewController.swift */; };
 		B913894D261C93BE001EC158 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913894B261C93BE001EC158 /* Main.storyboard */; };
 		B9138950261C93BE001EC158 /* v8bank.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B913894E261C93BE001EC158 /* v8bank.xcdatamodeld */; };
 		B9138952261C93C1001EC158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9138951261C93C1001EC158 /* Assets.xcassets */; };
@@ -17,6 +16,7 @@
 		B9138960261C93C2001EC158 /* v8bankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913895F261C93C2001EC158 /* v8bankTests.swift */; };
 		B913896B261C93C2001EC158 /* v8bankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913896A261C93C2001EC158 /* v8bankUITests.swift */; };
 		B9138993261CA4CD001EC158 /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = B9138992261CA4CD001EC158 /* Onboarding */; };
+		B9C3B99C261E41B1004024DA /* V8InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3B99B261E41B1004024DA /* V8InitialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 		B9138942261C93BE001EC158 /* v8bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v8bank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9138945261C93BE001EC158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9138947261C93BE001EC158 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B9138949261C93BE001EC158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B913894C261C93BE001EC158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B913894F261C93BE001EC158 /* v8bank.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v8bank.xcdatamodel; sourceTree = "<group>"; };
 		B9138951261C93C1001EC158 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		B913896A261C93C2001EC158 /* v8bankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v8bankUITests.swift; sourceTree = "<group>"; };
 		B913896C261C93C2001EC158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9138988261CA3AD001EC158 /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Onboarding; path = ../Onboarding; sourceTree = "<group>"; };
+		B9C3B99B261E41B1004024DA /* V8InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V8InitialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 				B91B0C24261CA8AF00329B05 /* New Group */,
 				B9138945261C93BE001EC158 /* AppDelegate.swift */,
 				B9138947261C93BE001EC158 /* SceneDelegate.swift */,
-				B9138949261C93BE001EC158 /* ViewController.swift */,
+				B9C3B99B261E41B1004024DA /* V8InitialViewController.swift */,
 				B913894B261C93BE001EC158 /* Main.storyboard */,
 				B9138951261C93C1001EC158 /* Assets.xcassets */,
 				B9138953261C93C1001EC158 /* LaunchScreen.storyboard */,
@@ -284,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B913894A261C93BE001EC158 /* ViewController.swift in Sources */,
+				B9C3B99C261E41B1004024DA /* V8InitialViewController.swift in Sources */,
 				B9138950261C93BE001EC158 /* v8bank.xcdatamodeld in Sources */,
 				B9138946261C93BE001EC158 /* AppDelegate.swift in Sources */,
 				B9138948261C93BE001EC158 /* SceneDelegate.swift in Sources */,

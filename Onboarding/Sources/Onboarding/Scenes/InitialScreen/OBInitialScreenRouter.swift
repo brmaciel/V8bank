@@ -31,6 +31,11 @@ public class OBInitialScreenRouter {
     
     // MARK: - Routing
     
+    func goToCreateAccount() {
+        // TODO: Go to create new account
+        print("create new account")
+    }
+    
     func goToNewLogin() {
         let destinationVC = NewLoginRouter.createModule(coordinator: self)
         view?.present(destinationVC, animated: true, completion: nil)
@@ -45,7 +50,9 @@ extension OBInitialScreenRouter: OBLoginCoordinator {
     }
     
     func didLogin() {
-        print("TODO: login user")
+        view?.dismiss(animated: true, completion: {
+            NotificationCenter.default.post(name: NSNotification.Name("onboarding.didLogin"), object: nil)
+        })
     }
 }
 

@@ -5,19 +5,20 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="v8bank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="V8InitialViewController" customModule="v8bank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-of-YUX">
-                                <rect key="frame" x="102" y="410" width="210.5" height="76.5"/>
+                                <rect key="frame" x="102" y="76" width="210.5" height="744"/>
                                 <attributedString key="attributedText">
                                     <fragment content="V8">
                                         <attributes>
@@ -46,14 +47,53 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.054901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="9tL-of-YUX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LuG-u9-M9O"/>
+                            <constraint firstItem="9tL-of-YUX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" priority="750" id="LuG-u9-M9O"/>
+                            <constraint firstItem="9tL-of-YUX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="Qv5-l2-pYc"/>
                             <constraint firstItem="9tL-of-YUX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W6a-By-Pz9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="constraint_titleCenterY" destination="LuG-u9-M9O" id="mTm-oN-fid"/>
+                        <outlet property="lb_title" destination="9tL-of-YUX" id="ovb-T3-SzM"/>
+                        <segue destination="j6Z-zZ-Pp6" kind="show" identifier="goToMainMenu" id="8UX-2s-BNg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="141" y="124"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="KpE-A6-zOl">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="j6Z-zZ-Pp6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P2L-jQ-fEB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bq2-wF-Wzg">
+                                <rect key="frame" x="165" y="437.5" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Has-dC-95G"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bq2-wF-Wzg" firstAttribute="centerY" secondItem="P2L-jQ-fEB" secondAttribute="centerY" id="fcn-8h-rUX"/>
+                            <constraint firstItem="bq2-wF-Wzg" firstAttribute="centerX" secondItem="P2L-jQ-fEB" secondAttribute="centerX" id="o7y-Hh-qV1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6D0-Or-zAL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xzK-DN-2Ot" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997" y="124"/>
+        </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
