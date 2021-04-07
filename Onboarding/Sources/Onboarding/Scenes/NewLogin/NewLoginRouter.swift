@@ -34,7 +34,7 @@ class NewLoginRouter {
     // MARK: - Routing
     
     func proceedWithLoginProcess(data: NewLoginModels.DataStore) {
-        view?.dismiss(animated: true, completion: {
+        view?.dismissView(animated: true, completion: {
             self.coordinator?.didEnterCPF(data: data)
         })
     }

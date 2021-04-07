@@ -36,11 +36,13 @@ class OBEnterLoginPasswordRouter {
     // MARK: - Routing
     
     func didLoginWithSuccess() {
-        coordinator?.didLogin()
+        view?.dismissView(animated: true, completion: {
+            self.coordinator?.didLogin()
+        })
     }
     
     func dismissView() {
-        view?.dismiss(animated: true, completion: nil)
+        view?.dismissView(animated: true, completion: nil)
     }
     
 }

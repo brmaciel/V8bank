@@ -98,13 +98,13 @@
                                     <constraint firstItem="T9r-Bc-pvv" firstAttribute="centerX" secondItem="mdH-tV-Rf5" secondAttribute="centerX" id="wTX-jE-hXe"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1uC-LM-aT5">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1uC-LM-aT5" userLabel="BottomSafeArea View">
                                 <rect key="frame" x="0.0" y="778" width="375" height="34"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="svt-8E-t8B"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.24785431338028169" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="1uC-LM-aT5" secondAttribute="bottom" id="3e9-7f-HzF"/>
                             <constraint firstItem="svt-8E-t8B" firstAttribute="trailing" secondItem="0V8-wA-bI4" secondAttribute="trailing" id="4zs-ZL-ke4"/>
@@ -122,6 +122,7 @@
                     <connections>
                         <outlet property="btn_enter" destination="CYh-Ib-PMu" id="fRe-hs-dIo"/>
                         <outlet property="constraint_bottomToCardBottom" destination="4yW-xE-fH1" id="vgk-Ep-vFT"/>
+                        <outlet property="constraint_bottomToSafeArea" destination="RVZ-Ha-wUW" id="yFg-61-ySZ"/>
                         <outlet property="field_cpf" destination="tFR-Hc-gDA" id="Kbg-4O-6mr"/>
                         <outlet property="lb_cpf" destination="OOW-jJ-l7O" id="qUX-we-gEl"/>
                         <outlet property="view_card" destination="mdH-tV-Rf5" id="CvP-5G-QLO"/>

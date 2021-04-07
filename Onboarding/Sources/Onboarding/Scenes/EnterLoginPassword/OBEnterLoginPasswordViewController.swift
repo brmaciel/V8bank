@@ -10,16 +10,21 @@ import UIKit
 class OBEnterLoginPasswordViewController: UIViewController {
     
     // MARK: Outlets
+    @IBOutlet weak var view_card: UIView!
     @IBOutlet var view_passwords: [UIView]!
     @IBOutlet weak var field_password: UITextField!
     @IBOutlet weak var lb_loginFailedMessage: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var constraint_bottomToCardBottom: NSLayoutConstraint!
+    @IBOutlet weak var constraint_bottomToSafeArea: NSLayoutConstraint!
     
     // MARK: Properties
     var interactor: OBEnterLoginPasswordInteractorProtocol?
     private var isSettingUp = true
     private let originalDistanceFromBottom: CGFloat = 24.0
+    private var heightBelowBottom: CGFloat {
+        return 0 - (20 + view_card.frame.height + UIApplication.shared.windows[0].safeAreaInsets.bottom)
+    }
     
     
     // MARK: View Lifecycle
@@ -30,18 +35,19 @@ class OBEnterLoginPasswordViewController: UIViewController {
         setupView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         if isSettingUp {
-            UIView.animate(withDuration: 0.3) {
-                self.view.backgroundColor = UIColor.black.withAlphaComponent(0.25)
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                self.constraint_bottomToSafeArea.constant = 0
+                self.view.layoutIfNeeded()
+            } completion: { _ in
+                self.field_password.becomeFirstResponder()
             }
-            self.field_password.becomeFirstResponder()
         }
         isSettingUp = false
     }
-    
     deinit { NotificationCenter.default.removeObserver(self) }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -58,11 +64,20 @@ class OBEnterLoginPasswordViewController: UIViewController {
     private func setupView() {
         field_password.text = " "
         addKeyboardObserver()
+        constraint_bottomToSafeArea.constant = self.heightBelowBottom
     }
     
     
     // MARK: - Methods
     
+    func dismissView(animated: Bool, completion: (() -> Void)?) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+            self.constraint_bottomToSafeArea.constant = self.heightBelowBottom
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.dismiss(animated: true, completion: completion)
+        }
+    }
     
     
     // MARK: - Button Actions
