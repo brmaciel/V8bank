@@ -62,6 +62,7 @@ class V8InitialViewController: UIViewController {
     // MARK: - Observer Methods
     
     @objc func didLogin() {
+        // TODO: Go to MainMenu by MainMenuRouter
         performSegue(withIdentifier: "goToMainMenu", sender: nil)
     }
 
