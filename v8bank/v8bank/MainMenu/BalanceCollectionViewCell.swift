@@ -14,19 +14,24 @@ class BalanceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lb_balance: UILabel!
     @IBOutlet weak var btn_showHideBalance: UIButton!
     @IBOutlet weak var lb_action: UILabel!
+    @IBOutlet weak var imgview_arrow: UIImageView!
     
     // MARK: Properties
-    var viewModel: BalanceViewModel? {
+    var viewModel: MainMenuModels.ViewModel.BalanceViewModel? {
         didSet {
             lb_title.text = viewModel?.title
-            lb_balance.text = viewModel?.balance
+            lb_balance.text = viewModel?.presentedBalance
             lb_action.text = viewModel?.actionName
+            btn_showHideBalance.setImage(viewModel?.showHideImage, for: .normal)
         }
     }
     
     // MARK: - Setup View Methods
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        btn_showHideBalance.tintColor = .white
+        imgview_arrow.image = UIImage.arrowToRight
     }
     
     

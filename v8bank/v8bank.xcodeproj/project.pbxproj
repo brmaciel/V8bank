@@ -28,6 +28,7 @@
 		B9D39006262B4CE100C7CAEA /* MainMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D38FFF262B4CE100C7CAEA /* MainMenuInteractor.swift */; };
 		B9D39012262B4DD400C7CAEA /* BalanceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D39010262B4DD400C7CAEA /* BalanceCollectionViewCell.swift */; };
 		B9D39013262B4DD400C7CAEA /* BalanceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9D39011262B4DD400C7CAEA /* BalanceCollectionViewCell.xib */; };
+		B9D3901B262B5D1100C7CAEA /* V8Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D3901A262B5D1100C7CAEA /* V8Requester.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		B9D38FFF262B4CE100C7CAEA /* MainMenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuInteractor.swift; sourceTree = "<group>"; };
 		B9D39010262B4DD400C7CAEA /* BalanceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCollectionViewCell.swift; sourceTree = "<group>"; };
 		B9D39011262B4DD400C7CAEA /* BalanceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalanceCollectionViewCell.xib; sourceTree = "<group>"; };
+		B9D3901A262B5D1100C7CAEA /* V8Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V8Requester.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				B9138956261C93C1001EC158 /* Info.plist */,
 				B913894E261C93BE001EC158 /* v8bank.xcdatamodeld */,
 				B91B0C24261CA8AF00329B05 /* New Group */,
+				B9D3901A262B5D1100C7CAEA /* V8Requester.swift */,
 			);
 			path = v8bank;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				B9D39012262B4DD400C7CAEA /* BalanceCollectionViewCell.swift in Sources */,
 				B9D39006262B4CE100C7CAEA /* MainMenuInteractor.swift in Sources */,
 				B9D39000262B4CE100C7CAEA /* MainMenuPresenter.swift in Sources */,
+				B9D3901B262B5D1100C7CAEA /* V8Requester.swift in Sources */,
 				B9138950261C93BE001EC158 /* v8bank.xcdatamodeld in Sources */,
 				B9D39002262B4CE100C7CAEA /* MainMenuRouter.swift in Sources */,
 				B9138946261C93BE001EC158 /* AppDelegate.swift in Sources */,

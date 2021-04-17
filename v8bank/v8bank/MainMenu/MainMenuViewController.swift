@@ -40,7 +40,7 @@ class MainMenuViewController: UIViewController {
         collectionView_balances.register(UINib(nibName: "BalanceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "balanceCell")
         setCollectionViewCellSize(for: collectionView_balances)
         
-        viewModel = MainMenuModels.ViewModel()
+        interactor?.viewDidLoad()
     }
     
     private func setCollectionViewCellSize(for collectionView: UICollectionView) {
@@ -70,7 +70,18 @@ class MainMenuViewController: UIViewController {
 
 // MARK: - Access from Presenter
 extension MainMenuViewController: MainMenuPresenterDelegate {
+    func startRequest() {
+        print("loading...")
+    }
     
+    func finishRequest() {
+        print("finish loading")
+    }
+    
+    func showBalances(viewModel: MainMenuModels.ViewModel) {
+        self.viewModel = viewModel
+        collectionView_balances.reloadData()
+    }
 }
 
 

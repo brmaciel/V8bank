@@ -47,7 +47,8 @@ class V8InitialViewController: UIViewController {
             self.constraint_titleCenterY.priority = UILayoutPriority(rawValue: 1)
             self.view.layoutIfNeeded()
         } completion: { _ in
-            self.presentOnboarding()
+            //self.presentOnboarding()
+            self.didLogin()
         }
     }
     
@@ -62,8 +63,10 @@ class V8InitialViewController: UIViewController {
     // MARK: - Observer Methods
     
     @objc func didLogin() {
-        // TODO: Go to MainMenu by MainMenuRouter
-        performSegue(withIdentifier: "goToMainMenu", sender: nil)
+        let mainMenuVC = MainMenuRouter.createModule()
+        present(mainMenuVC, animated: true, completion: nil)
+        
+//        performSegue(withIdentifier: "goToMainMenu", sender: nil)
     }
 
 }

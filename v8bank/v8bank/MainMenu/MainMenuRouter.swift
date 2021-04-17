@@ -18,10 +18,12 @@ class MainMenuRouter {
         let interactor = MainMenuInteractor()
         let presenter = MainMenuPresenter()
         let router = MainMenuRouter()
+        let worker = MainMenuWorker()
         
         view.interactor = interactor
         interactor.presenter = presenter
         interactor.router = router
+        interactor.worker = worker
         presenter.view = view
         router.view = view
         
