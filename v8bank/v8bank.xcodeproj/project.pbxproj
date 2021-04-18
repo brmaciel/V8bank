@@ -16,6 +16,7 @@
 		B9138960261C93C2001EC158 /* v8bankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913895F261C93C2001EC158 /* v8bankTests.swift */; };
 		B913896B261C93C2001EC158 /* v8bankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913896A261C93C2001EC158 /* v8bankUITests.swift */; };
 		B9138993261CA4CD001EC158 /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = B9138992261CA4CD001EC158 /* Onboarding */; };
+		B93EC9E4262C84D9009AF096 /* Transactions in Frameworks */ = {isa = PBXBuildFile; productRef = B93EC9E3262C84D9009AF096 /* Transactions */; };
 		B9C3B99C261E41B1004024DA /* V8InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3B99B261E41B1004024DA /* V8InitialViewController.swift */; };
 		B9C3B9AB261E4C3F004024DA /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = B9C3B9AA261E4C3F004024DA /* CommonUI */; };
 		B9D38FF1262B3D2A00C7CAEA /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D38FF0262B3D2A00C7CAEA /* MainMenu.storyboard */; };
@@ -64,6 +65,7 @@
 		B913896A261C93C2001EC158 /* v8bankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v8bankUITests.swift; sourceTree = "<group>"; };
 		B913896C261C93C2001EC158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9138988261CA3AD001EC158 /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Onboarding; path = ../Onboarding; sourceTree = "<group>"; };
+		B93EC9DF262C84C7009AF096 /* Transactions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Transactions; path = ../Transactions; sourceTree = "<group>"; };
 		B9C3B99B261E41B1004024DA /* V8InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V8InitialViewController.swift; sourceTree = "<group>"; };
 		B9C3B9A6261E4BE5004024DA /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CommonUI; path = ../CommonUI; sourceTree = "<group>"; };
 		B9D38FF0262B3D2A00C7CAEA /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93EC9E4262C84D9009AF096 /* Transactions in Frameworks */,
 				B9138993261CA4CD001EC158 /* Onboarding in Frameworks */,
 				B9C3B9AB261E4C3F004024DA /* CommonUI in Frameworks */,
 			);
@@ -109,6 +112,7 @@
 		B9138939261C93BE001EC158 = {
 			isa = PBXGroup;
 			children = (
+				B93EC9DF262C84C7009AF096 /* Transactions */,
 				B9C3B9A6261E4BE5004024DA /* CommonUI */,
 				B9138988261CA3AD001EC158 /* Onboarding */,
 				B9138944261C93BE001EC158 /* v8bank */,
@@ -223,6 +227,7 @@
 			packageProductDependencies = (
 				B9138992261CA4CD001EC158 /* Onboarding */,
 				B9C3B9AA261E4C3F004024DA /* CommonUI */,
+				B93EC9E3262C84D9009AF096 /* Transactions */,
 			);
 			productName = v8bank;
 			productReference = B9138942261C93BE001EC158 /* v8bank.app */;
@@ -692,6 +697,10 @@
 		B9138992261CA4CD001EC158 /* Onboarding */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Onboarding;
+		};
+		B93EC9E3262C84D9009AF096 /* Transactions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Transactions;
 		};
 		B9C3B9AA261E4C3F004024DA /* CommonUI */ = {
 			isa = XCSwiftPackageProductDependency;
