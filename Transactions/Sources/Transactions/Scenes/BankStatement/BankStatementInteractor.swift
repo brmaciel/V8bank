@@ -27,8 +27,8 @@ class BankStatementInteractor {
         })
     }
     
-    func manageStatementResponse(_ statement: [String]) {
-        guard !statement.isEmpty else {
+    func manageStatementResponse(_ statement: TRStatement) {
+        guard !statement.items.isEmpty else {
             // TODO: present empty statement message
             return }
         
@@ -43,5 +43,13 @@ class BankStatementInteractor {
 extension BankStatementInteractor: BankStatementInteractorProtocol {
     func viewDidLoad() {
         fetchStatement()
+    }
+    
+    func tryAgainFetchingStatement() {
+        fetchStatement()
+    }
+    
+    func closeScreen() {
+        router?.dismissView()
     }
 }

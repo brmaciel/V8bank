@@ -12,4 +12,7 @@ extension UIImage {
     public static var eyeClosed = UIImage(named: "ic_closed_eye", in: Bundle.module, compatibleWith: nil)!
     public static var arrowToRight = UIImage(named: "ic_arrow_right", in: Bundle.module, compatibleWith: nil)!
     
+    public static var eyeOpenBlack = UIImage(named: "ic_open_eye_black", in: Bundle.module, compatibleWith: nil)!
+    public static var eyeClosedBlack = UIImage(named: "ic_closed_eye_black", in: Bundle.module, compatibleWith: nil)!
+    
 }

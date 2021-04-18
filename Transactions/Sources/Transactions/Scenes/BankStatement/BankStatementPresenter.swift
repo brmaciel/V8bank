@@ -14,7 +14,34 @@ class BankStatementPresenter {
     
     // MARK: - Methods
     
+    func formatDate(_ dateString: String) -> String? {
+        // TODO: format date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyy-MM-dd"
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        
+        guard let date = formatter.date(from: dateString) else { return nil }
+        
+        formatter.dateFormat = "dd MMM"
+        
+        return formatter.string(from: date)
+    }
     
+    func formatAsCurrency(_ value: Double, includeCurrencySymbol: Bool) -> String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.locale = Locale(identifier: "pt_br")
+        if includeCurrencySymbol {
+            currencyFormatter.numberStyle = .currency
+            currencyFormatter.currencySymbol = "R$"
+        } else {
+            currencyFormatter.numberStyle = .decimal
+            currencyFormatter.maximumFractionDigits = 2
+            currencyFormatter.minimumFractionDigits = 2
+        }
+        
+        
+        return currencyFormatter.string(from: NSNumber(value: value))!
+    }
     
 }
 
@@ -30,7 +57,15 @@ extension BankStatementPresenter: BankStatementPresenterProtocol {
     }
     
     func presentStatement(response: BankStatementModels.Response) {
-        let viewModel = BankStatementModels.ViewModel()
+        let balance = formatAsCurrency(response.statement.balance, includeCurrencySymbol: false)
+        let statement: [BankStatementModels.ViewModel.StatementViewModel] = response.statement.items.map( { item in
+            let formattedDate = formatDate(item.date) ?? item.date
+            let value = formatAsCurrency(item.value, includeCurrencySymbol: true)
+            
+            return BankStatementModels.ViewModel.StatementViewModel(title: item.title, subtitle: item.subtitle, date: formattedDate, value: value)
+        } )
+        
+        let viewModel = BankStatementModels.ViewModel(balance: balance, statement: statement)
         view?.showStatement(viewModel: viewModel)
     }
     

@@ -72,6 +72,11 @@ public class V8GenericErrorView: UIView {
         set { lb_message.text = newValue }
     }
     
+    public var messageTextColor: UIColor {
+        get { return lb_message.textColor }
+        set { lb_message.textColor = newValue }
+    }
+    
     public func setTryAgainAction(_ action: Selector, target: Any) {
         btn_tryAgain.addTarget(target, action: action, for: .touchUpInside)
     }

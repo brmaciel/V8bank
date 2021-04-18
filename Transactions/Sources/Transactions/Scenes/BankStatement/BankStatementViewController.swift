@@ -11,6 +11,7 @@ import CommonUI
 class BankStatementViewController: UIViewController {
     
     // MARK: Outlets
+    @IBOutlet weak var view_balance: UIView!
     @IBOutlet weak var lb_balance: UILabel!
     @IBOutlet weak var btn_showHideBalance: UIButton!
     @IBOutlet weak var tableView_statement: UITableView!
@@ -19,7 +20,12 @@ class BankStatementViewController: UIViewController {
     
     // MARK: Properties
     var interactor: BankStatementInteractorProtocol?
-    var viewModel: BankStatementModels.ViewModel?
+    var viewModel: BankStatementModels.ViewModel? {
+        didSet {
+            lb_balance.text = viewModel?.presentedBalance
+            btn_showHideBalance.setImage(viewModel?.showHideImage, for: .normal)
+        }
+    }
     
     
     // MARK: View Lifecycle
@@ -39,6 +45,10 @@ class BankStatementViewController: UIViewController {
     }
         
     private func setupView() {
+        view.bringSubviewToFront(view_error)
+        view_balance.isHidden = true
+        view_error.setTryAgainAction(#selector(tryAgainFetchingBalances), target: self)
+        view_error.messageTextColor = .black
         interactor?.viewDidLoad()
     }
     
@@ -50,12 +60,15 @@ class BankStatementViewController: UIViewController {
     // MARK: - Button Actions
     
     @IBAction func tapShowHideBalance(_ sender: UIButton) {
-        //viewModel?.showHideBalance()
+        viewModel?.showHideBalance()
+    }
+    
+    @objc func tryAgainFetchingBalances() {
+        interactor?.tryAgainFetchingStatement()
     }
     
     @IBAction func tapBackButton(_ sender: UIButton) {
-//        self.navigationController?.popViewController(animated: true)
-//        self.dismiss(animated: true, completion: nil)
+        interactor?.closeScreen()
     }
     
 }
@@ -73,10 +86,8 @@ extension BankStatementViewController: BankStatementPresenterDelegate {
     }
     
     func showStatement(viewModel: BankStatementModels.ViewModel) {
-//        lb_balance.text = viewModel?.presentedBalance
-//        btn_showHideBalance.setImage(viewModel?.showHideImage, for: .normal)
-        
         self.viewModel = viewModel
+        view_balance.isHidden = false
         tableView_statement.reloadData()
     }
     
@@ -91,15 +102,18 @@ extension BankStatementViewController: BankStatementPresenterDelegate {
 
 extension BankStatementViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "<#cellId#>", for: indexPath) as! <#cellClass#>
-//        cell.setup()
-//
-//        return cell
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "statementCell", for: indexPath) as! TRBankStatementTableViewCell
+        cell.viewModel = viewModel?.item(at: indexPath.row)
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("TODO: present details")
     }
     
 }

@@ -10,6 +10,8 @@ import Foundation
 /// View -> Interactor
 protocol BankStatementInteractorProtocol: AnyObject {
     func viewDidLoad()
+    func tryAgainFetchingStatement()
+    func closeScreen()
 }
 
 /// Interactor -> Presenter
