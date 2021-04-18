@@ -134,6 +134,7 @@
 			children = (
 				B9138945261C93BE001EC158 /* AppDelegate.swift */,
 				B9138947261C93BE001EC158 /* SceneDelegate.swift */,
+				B93EC9D7262C75C1009AF096 /* Service */,
 				B9C3B99B261E41B1004024DA /* V8InitialViewController.swift */,
 				B913894B261C93BE001EC158 /* Main.storyboard */,
 				B9D38FF5262B3D3700C7CAEA /* MainMenu */,
@@ -142,7 +143,6 @@
 				B9138956261C93C1001EC158 /* Info.plist */,
 				B913894E261C93BE001EC158 /* v8bank.xcdatamodeld */,
 				B91B0C24261CA8AF00329B05 /* New Group */,
-				B9D3901A262B5D1100C7CAEA /* V8Requester.swift */,
 			);
 			path = v8bank;
 			sourceTree = "<group>";
@@ -177,6 +177,14 @@
 			children = (
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B93EC9D7262C75C1009AF096 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B9D3901A262B5D1100C7CAEA /* V8Requester.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B9D38FF5262B3D3700C7CAEA /* MainMenu */ = {

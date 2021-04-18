@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CommonUI
 
 class MainMenuViewController: UIViewController {
     
@@ -13,6 +14,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var lb_userName: UILabel!
     @IBOutlet weak var collectionView_balances: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var view_error: V8GenericErrorView!
     
     // MARK: Properties
     var interactor: MainMenuInteractorProtocol?
@@ -40,6 +42,7 @@ class MainMenuViewController: UIViewController {
         
         collectionView_balances.register(UINib(nibName: "BalanceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "balanceCell")
         setCollectionViewCellSize(for: collectionView_balances)
+        view_error.setTryAgainAction(#selector(tryAgainFetchingBalances), target: self)
         
         interactor?.viewDidLoad()
     }
@@ -66,12 +69,17 @@ class MainMenuViewController: UIViewController {
         print("TODO: go to user")
     }
     
+    @objc func tryAgainFetchingBalances() {
+        interactor?.tryAgainFetchingBalances()
+    }
+    
 }
 
 
 // MARK: - Access from Presenter
 extension MainMenuViewController: MainMenuPresenterDelegate {
     func startRequest() {
+        view_error.hide()
         activityIndicator.startAnimating()
     }
     
@@ -82,6 +90,11 @@ extension MainMenuViewController: MainMenuPresenterDelegate {
     func showBalances(viewModel: MainMenuModels.ViewModel) {
         self.viewModel = viewModel
         collectionView_balances.reloadData()
+    }
+    
+    func showError() {
+        view_error.message = "Fail to retrieve balances\nTry again later"
+        view_error.show()
     }
 }
 

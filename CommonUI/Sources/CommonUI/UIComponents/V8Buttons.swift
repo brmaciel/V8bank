@@ -9,6 +9,8 @@ import UIKit
 
 public class V8MainButton: UIButton {
     
+    fileprivate var heightConstraint: NSLayoutConstraint?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -23,7 +25,8 @@ public class V8MainButton: UIButton {
     
     fileprivate func setupView() {
         let height: CGFloat = 48.0
-        heightAnchor.constraint(equalToConstant: height).isActive = true
+        heightConstraint = heightAnchor.constraint(equalToConstant: height)
+        heightConstraint?.isActive = true
         layer.cornerRadius = height / 2
     }
     
@@ -64,6 +67,14 @@ public class V8ConfirmButton: V8MainButton {
 }
 
 public class V8AuxiliaryButton: V8MainButton {
+    
+    public var height: CGFloat {
+        get { return heightConstraint?.constant ?? 0 }
+        set {
+            heightConstraint?.constant = newValue
+            layer.cornerRadius = newValue / 2
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

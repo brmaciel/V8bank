@@ -69,6 +69,10 @@
                                                         </collectionViewFlowLayout>
                                                         <cells/>
                                                     </collectionView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t6O-2y-SvY" customClass="V8GenericErrorView" customModule="CommonUI">
+                                                        <rect key="frame" x="0.0" y="88" width="375" height="140"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="2FJ-hv-5pB">
                                                         <rect key="frame" x="169" y="139.66666666666666" width="37" height="37"/>
                                                         <color key="color" name="v8mediumGray"/>
@@ -84,9 +88,13 @@
                                                     <constraint firstAttribute="bottom" secondItem="EVN-qb-va7" secondAttribute="bottom" constant="32" id="Leo-Bt-dvh"/>
                                                     <constraint firstItem="2FJ-hv-5pB" firstAttribute="centerY" secondItem="EVN-qb-va7" secondAttribute="centerY" id="VcK-OS-Ird"/>
                                                     <constraint firstItem="EVN-qb-va7" firstAttribute="top" secondItem="14j-8p-M4F" secondAttribute="bottom" constant="24" id="aTc-98-2f0"/>
+                                                    <constraint firstItem="t6O-2y-SvY" firstAttribute="leading" secondItem="EVN-qb-va7" secondAttribute="leading" id="axd-EU-0gp"/>
                                                     <constraint firstItem="14j-8p-M4F" firstAttribute="top" secondItem="aUC-04-lQj" secondAttribute="top" constant="24" id="hef-bk-uZG"/>
                                                     <constraint firstItem="nqM-HS-q9V" firstAttribute="leading" secondItem="14j-8p-M4F" secondAttribute="leading" id="k8A-PL-DGF"/>
+                                                    <constraint firstItem="t6O-2y-SvY" firstAttribute="bottom" secondItem="EVN-qb-va7" secondAttribute="bottom" id="lZC-dp-Y7v"/>
                                                     <constraint firstItem="2FJ-hv-5pB" firstAttribute="centerX" secondItem="EVN-qb-va7" secondAttribute="centerX" id="lbv-wN-EEE"/>
+                                                    <constraint firstItem="t6O-2y-SvY" firstAttribute="trailing" secondItem="EVN-qb-va7" secondAttribute="trailing" id="qP0-HC-LVJ"/>
+                                                    <constraint firstItem="t6O-2y-SvY" firstAttribute="top" secondItem="EVN-qb-va7" secondAttribute="top" id="rUc-P6-HF4"/>
                                                     <constraint firstItem="BhF-Ts-BWc" firstAttribute="leading" secondItem="aUC-04-lQj" secondAttribute="leading" constant="16" id="s9Y-jY-0yF"/>
                                                     <constraint firstAttribute="trailing" secondItem="14j-8p-M4F" secondAttribute="trailing" constant="16" id="se2-2z-KfU"/>
                                                     <constraint firstItem="nqM-HS-q9V" firstAttribute="bottom" secondItem="14j-8p-M4F" secondAttribute="bottom" id="v6W-gT-hDj"/>
@@ -179,6 +187,7 @@
                         <outlet property="activityIndicator" destination="2FJ-hv-5pB" id="Q68-bg-CwO"/>
                         <outlet property="collectionView_balances" destination="EVN-qb-va7" id="Wm6-zw-4pZ"/>
                         <outlet property="lb_userName" destination="BhF-Ts-BWc" id="yMj-Nx-XcR"/>
+                        <outlet property="view_error" destination="t6O-2y-SvY" id="Fyh-Rd-Q9g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpY-nB-bDW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -191,7 +200,7 @@
             <color red="0.054901960784313725" green="0.054901960784313725" blue="0.054901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="v8lightGray">
-            <color red="0.92900002002716064" green="0.92900002002716064" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="v8mediumGray">
             <color red="0.24313725490196078" green="0.24313725490196078" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

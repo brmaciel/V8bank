@@ -23,7 +23,7 @@ class MainMenuInteractor {
             self.manageBalanceResponse(response)
         }, fail: {
             self.presenter?.finishRequest()
-            // TODO: present error
+            self.presenter?.presentError()
         })
     }
     
@@ -42,6 +42,10 @@ class MainMenuInteractor {
 // MARK: - Access from View
 extension MainMenuInteractor: MainMenuInteractorProtocol {
     func viewDidLoad() {
+        fetchBalances()
+    }
+    
+    func tryAgainFetchingBalances() {
         fetchBalances()
     }
 }

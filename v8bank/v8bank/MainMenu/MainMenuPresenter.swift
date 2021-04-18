@@ -76,4 +76,8 @@ extension MainMenuPresenter: MainMenuPresenterProtocol {
         let viewModel = MainMenuModels.ViewModel(balances: balances)
         view?.showBalances(viewModel: viewModel)
     }
+    
+    func presentError() {
+        view?.showError()
+    }
 }

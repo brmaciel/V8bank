@@ -10,6 +10,7 @@ import Foundation
 /// View -> Interactor
 protocol MainMenuInteractorProtocol: AnyObject {
     func viewDidLoad()
+    func tryAgainFetchingBalances()
 }
 
 /// Interactor -> Presenter
@@ -18,6 +19,7 @@ protocol MainMenuPresenterProtocol: AnyObject {
     func finishRequest()
     
     func presentBalances(response: MainMenuModels.Response)
+    func presentError()
 }
 
 /// Presenter -> View
@@ -26,4 +28,5 @@ protocol MainMenuPresenterDelegate: AnyObject {
     func finishRequest()
     
     func showBalances(viewModel: MainMenuModels.ViewModel)
+    func showError()
 }
