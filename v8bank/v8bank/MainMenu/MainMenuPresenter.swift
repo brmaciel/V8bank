@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Transactions
 
 class MainMenuPresenter {
     
@@ -66,7 +67,7 @@ extension MainMenuPresenter: MainMenuPresenterProtocol {
             let title = getTitle(from: balance.balanceType)
             let balanceAmount = formatAsCurrency(balance.amount)
             let actionName = getActionName(from: balance.balanceType)
-            let action = {print("show details")}
+            let action = BankStatementRouter.createModule
             
             let viewModel = MainMenuModels.ViewModel.BalanceViewModel(title: title, balance: balanceAmount, actionName: actionName, action: action)
             

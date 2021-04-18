@@ -26,7 +26,7 @@ enum MainMenuModels {
             let title: String
             private let balance: String
             let actionName: String
-            var action: () -> Void
+            var action: () -> UIViewController
             
             private var isHidden = false
             
@@ -40,7 +40,7 @@ enum MainMenuModels {
             
             
             // MARK: Constructor
-            init(title: String, balance: String, actionName: String, action: @escaping () -> Void) {
+            init(title: String, balance: String, actionName: String, action: @escaping () -> UIViewController) {
                 self.title = title
                 self.balance = balance
                 self.actionName = actionName

@@ -98,6 +98,11 @@ extension MainMenuViewController: MainMenuPresenterDelegate {
     }
 }
 
+extension MainMenuViewController: BalanceCellDelegate {
+    func presentDetailsScreen(_ view: UIViewController) {
+        present(view, animated: true, completion: nil)
+    }
+}
 
 // MARK: - CollectionView Methods
 extension MainMenuViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -108,6 +113,7 @@ extension MainMenuViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "balanceCell", for: indexPath) as! BalanceCollectionViewCell
         cell.viewModel = viewModel?.balance(at: indexPath.row)
+        cell.delegate = self
         
         return cell
     }

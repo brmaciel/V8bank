@@ -25,7 +25,8 @@ class MainMenuWorker {
                     
                     let object = [
                         BalancesStruct(balanceType: 1, amount: 12345.67),
-                        BalancesStruct(balanceType: 2, amount: 44.59)
+                        BalancesStruct(balanceType: 2, amount: 44.59),
+                        BalancesStruct(balanceType: 3, amount: 404.59)
                     ]
                     completion(object)
                 default:

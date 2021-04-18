@@ -25,6 +25,8 @@ class BalanceCollectionViewCell: UICollectionViewCell {
             btn_showHideBalance.setImage(viewModel?.showHideImage, for: .normal)
         }
     }
+    weak var delegate: BalanceCellDelegate?
+    
     
     // MARK: - Setup View Methods
     override func awakeFromNib() {
@@ -46,7 +48,12 @@ class BalanceCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func tapDetailsButton(_ sender: UIButton) {
-        viewModel?.action()
+        guard let viewController = viewModel?.action() else { return }
+        delegate?.presentDetailsScreen(viewController)
     }
     
+}
+
+protocol BalanceCellDelegate: AnyObject {
+    func presentDetailsScreen(_ view: UIViewController)
 }
