@@ -12,6 +12,7 @@ class MainMenuViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var lb_userName: UILabel!
     @IBOutlet weak var collectionView_balances: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties
     var interactor: MainMenuInteractorProtocol?
@@ -71,11 +72,11 @@ class MainMenuViewController: UIViewController {
 // MARK: - Access from Presenter
 extension MainMenuViewController: MainMenuPresenterDelegate {
     func startRequest() {
-        print("loading...")
+        activityIndicator.startAnimating()
     }
     
     func finishRequest() {
-        print("finish loading")
+        activityIndicator.stopAnimating()
     }
     
     func showBalances(viewModel: MainMenuModels.ViewModel) {

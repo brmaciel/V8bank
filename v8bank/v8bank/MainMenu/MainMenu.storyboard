@@ -69,6 +69,10 @@
                                                         </collectionViewFlowLayout>
                                                         <cells/>
                                                     </collectionView>
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="2FJ-hv-5pB">
+                                                        <rect key="frame" x="169" y="139.66666666666666" width="37" height="37"/>
+                                                        <color key="color" name="v8mediumGray"/>
+                                                    </activityIndicatorView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -78,9 +82,11 @@
                                                     <constraint firstItem="BhF-Ts-BWc" firstAttribute="centerY" secondItem="14j-8p-M4F" secondAttribute="centerY" id="EjG-Jj-krV"/>
                                                     <constraint firstItem="nqM-HS-q9V" firstAttribute="trailing" secondItem="14j-8p-M4F" secondAttribute="trailing" id="FbX-CF-Xnm"/>
                                                     <constraint firstAttribute="bottom" secondItem="EVN-qb-va7" secondAttribute="bottom" constant="32" id="Leo-Bt-dvh"/>
+                                                    <constraint firstItem="2FJ-hv-5pB" firstAttribute="centerY" secondItem="EVN-qb-va7" secondAttribute="centerY" id="VcK-OS-Ird"/>
                                                     <constraint firstItem="EVN-qb-va7" firstAttribute="top" secondItem="14j-8p-M4F" secondAttribute="bottom" constant="24" id="aTc-98-2f0"/>
                                                     <constraint firstItem="14j-8p-M4F" firstAttribute="top" secondItem="aUC-04-lQj" secondAttribute="top" constant="24" id="hef-bk-uZG"/>
                                                     <constraint firstItem="nqM-HS-q9V" firstAttribute="leading" secondItem="14j-8p-M4F" secondAttribute="leading" id="k8A-PL-DGF"/>
+                                                    <constraint firstItem="2FJ-hv-5pB" firstAttribute="centerX" secondItem="EVN-qb-va7" secondAttribute="centerX" id="lbv-wN-EEE"/>
                                                     <constraint firstItem="BhF-Ts-BWc" firstAttribute="leading" secondItem="aUC-04-lQj" secondAttribute="leading" constant="16" id="s9Y-jY-0yF"/>
                                                     <constraint firstAttribute="trailing" secondItem="14j-8p-M4F" secondAttribute="trailing" constant="16" id="se2-2z-KfU"/>
                                                     <constraint firstItem="nqM-HS-q9V" firstAttribute="bottom" secondItem="14j-8p-M4F" secondAttribute="bottom" id="v6W-gT-hDj"/>
@@ -170,6 +176,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="2FJ-hv-5pB" id="Q68-bg-CwO"/>
                         <outlet property="collectionView_balances" destination="EVN-qb-va7" id="Wm6-zw-4pZ"/>
                         <outlet property="lb_userName" destination="BhF-Ts-BWc" id="yMj-Nx-XcR"/>
                     </connections>
