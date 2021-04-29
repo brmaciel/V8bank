@@ -28,11 +28,12 @@ class BankStatementInteractor {
     }
     
     func manageStatementResponse(_ statement: TRStatement) {
+        let response = BankStatementModels.Response(statement: statement)
+        
         guard !statement.items.isEmpty else {
-            // TODO: present empty statement message
+            presenter?.presentEmptyStatement(response: response)
             return }
         
-        let response = BankStatementModels.Response(statement: statement)
         presenter?.presentStatement(response: response)
     }
     

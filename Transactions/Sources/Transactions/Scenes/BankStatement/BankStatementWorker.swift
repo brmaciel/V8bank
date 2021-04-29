@@ -23,7 +23,7 @@ class BankStatementWorker {
 //                        let object = try? JSONDecoder().decode(TRStatement.self, from: data)
 //                        else { fail(); return }
                     
-                    let object = self.mockStatement()
+                    let object = (Int.random(in: 1...3) > 1) ? self.mockStatement() : TRStatement(balance: 123456.78, items: [])
                     completion(object)
                 default:
                     fail()

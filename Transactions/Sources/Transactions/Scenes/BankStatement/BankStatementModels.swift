@@ -28,7 +28,7 @@ enum BankStatementModels {
             let isIncome: Bool
             
             var valueViewBackgroundColor: UIColor {
-                return isIncome ? .v8lightGreen : .clear// .v8lightRed
+                return isIncome ? .v8lightGreen : .clear
             }
             
             var valueLabelColor: UIColor {
@@ -39,11 +39,6 @@ enum BankStatementModels {
         private let balance: String
         private var statement: [(date: String, statement: [StatementViewModel])]
         
-        var numOfSections: Int { return statement.count }
-        func numOfRows(in section: Int) -> Int {
-            return statement[safe: section]?.statement.count ?? 0
-        }
-        
         private var balanceIsHidden = false
         
         // Read-Only Properties
@@ -53,6 +48,8 @@ enum BankStatementModels {
         var showHideImage: UIImage? {
             return balanceIsHidden ? UIImage.eyeClosedBlack : UIImage.eyeOpenBlack
         }
+        var numOfSections: Int { return statement.count }
+        var noResultsFound: Bool { return statement.isEmpty }
         
         
         // MARK: Constructor
@@ -65,6 +62,10 @@ enum BankStatementModels {
         // MARK: Methods
         mutating func showHideBalance() {
             balanceIsHidden.toggle()
+        }
+        
+        func numOfRows(in section: Int) -> Int {
+            return statement[safe: section]?.statement.count ?? 0
         }
         
         func date(at section: Int) -> String {

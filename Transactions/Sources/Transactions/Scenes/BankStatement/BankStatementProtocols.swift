@@ -20,6 +20,7 @@ protocol BankStatementPresenterProtocol: AnyObject {
     func finishRequest()
     
     func presentStatement(response: BankStatementModels.Response)
+    func presentEmptyStatement(response: BankStatementModels.Response)
     func presentError()
 }
 

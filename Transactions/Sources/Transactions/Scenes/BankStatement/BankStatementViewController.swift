@@ -17,6 +17,7 @@ class BankStatementViewController: UIViewController {
     @IBOutlet weak var tableView_statement: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var view_error: V8GenericErrorView!
+    @IBOutlet weak var view_noResultsFound: UIView!
     
     // MARK: Properties
     var interactor: BankStatementInteractorProtocol?
@@ -46,6 +47,7 @@ class BankStatementViewController: UIViewController {
         
     private func setupView() {
         view.bringSubviewToFront(view_error)
+        view.bringSubviewToFront(view_noResultsFound)
         view_balance.isHidden = true
         view_error.setTryAgainAction(#selector(tryAgainFetchingBalances), target: self)
         view_error.messageTextColor = .black
@@ -89,6 +91,7 @@ extension BankStatementViewController: BankStatementPresenterDelegate {
         self.viewModel = viewModel
         view_balance.isHidden = false
         tableView_statement.reloadData()
+        view_noResultsFound.isHidden = !viewModel.noResultsFound
     }
     
     func showError() {

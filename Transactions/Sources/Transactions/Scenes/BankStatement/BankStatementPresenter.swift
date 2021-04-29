@@ -78,6 +78,13 @@ extension BankStatementPresenter: BankStatementPresenterProtocol {
         view?.showStatement(viewModel: viewModel)
     }
     
+    func presentEmptyStatement(response: BankStatementModels.Response) {
+        let balance = formatAsCurrency(response.statement.balance, includeCurrencySymbol: false)
+        
+        let viewModel = BankStatementModels.ViewModel(balance: balance, statement: [])
+        view?.showStatement(viewModel: viewModel)
+    }
+    
     func presentError() {
         view?.showError()
     }
