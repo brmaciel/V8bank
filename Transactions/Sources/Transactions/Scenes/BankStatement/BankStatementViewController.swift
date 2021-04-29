@@ -101,13 +101,17 @@ extension BankStatementViewController: BankStatementPresenterDelegate {
 // MARK: - TableView Methods
 
 extension BankStatementViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel?.numOfSections ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.count ?? 0
+        return viewModel?.numOfRows(in: section) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "statementCell", for: indexPath) as! TRBankStatementTableViewCell
-        cell.viewModel = viewModel?.item(at: indexPath.row)
+        cell.viewModel = viewModel?.item(section: indexPath.section, index: indexPath.row)
 
         return cell
     }
@@ -116,4 +120,23 @@ extension BankStatementViewController: UITableViewDelegate, UITableViewDataSourc
         print("TODO: present details")
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0,
+                                        width: tableView.frame.width,
+                                        height: 40))
+        view.backgroundColor = UIColor.v8lightGray
+        
+        let label = UILabel(frame: CGRect(x: 16, y: 0,
+                                          width: view.frame.width - 16,
+                                          height: view.frame.height))
+        label.text = viewModel?.date(at: section)
+        label.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
+        
+        view.addSubview(label)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
 }

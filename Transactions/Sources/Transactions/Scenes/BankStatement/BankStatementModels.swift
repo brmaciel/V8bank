@@ -24,14 +24,25 @@ enum BankStatementModels {
         struct StatementViewModel {
             let title: String
             let subtitle: String
-            let date: String
             let value: String
+            let isIncome: Bool
+            
+            var valueViewBackgroundColor: UIColor {
+                return isIncome ? .v8lightGreen : .clear// .v8lightRed
+            }
+            
+            var valueLabelColor: UIColor {
+                return isIncome ? .v8mediumGreen : .v8red
+            }
         }
         
         private let balance: String
-        private var statement: [StatementViewModel]
+        private var statement: [(date: String, statement: [StatementViewModel])]
         
-        var count: Int { return statement.count }
+        var numOfSections: Int { return statement.count }
+        func numOfRows(in section: Int) -> Int {
+            return statement[safe: section]?.statement.count ?? 0
+        }
         
         private var balanceIsHidden = false
         
@@ -45,7 +56,7 @@ enum BankStatementModels {
         
         
         // MARK: Constructor
-        init(balance: String, statement: [StatementViewModel]) {
+        init(balance: String, statement: [(date: String, statement: [StatementViewModel])]) {
             self.balance = balance
             self.statement = statement
         }
@@ -56,8 +67,12 @@ enum BankStatementModels {
             balanceIsHidden.toggle()
         }
         
-        func item(at index: Int) -> StatementViewModel? {
-            return statement[safe: index]
+        func date(at section: Int) -> String {
+            return statement[safe: section]?.date ?? ""
+        }
+        
+        func item(section: Int, index: Int) -> StatementViewModel? {
+            return statement[safe: section]?.statement[safe: index]
         }
     }
     

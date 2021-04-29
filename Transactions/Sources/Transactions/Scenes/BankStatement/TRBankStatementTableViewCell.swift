@@ -12,6 +12,7 @@ class TRBankStatementTableViewCell: UITableViewCell {
     // MARK: Outlets
     @IBOutlet weak var lb_title: UILabel!
     @IBOutlet weak var lb_subtitle: UILabel!
+    @IBOutlet weak var view_value: UIView!
     @IBOutlet weak var lb_value: UILabel!
     
     // MARK: Properties
@@ -19,6 +20,8 @@ class TRBankStatementTableViewCell: UITableViewCell {
         didSet {
             lb_title.text = viewModel?.title
             lb_subtitle.text = viewModel?.subtitle
+            view_value.backgroundColor = viewModel?.valueViewBackgroundColor
+            lb_value.textColor = viewModel?.valueLabelColor
             lb_value.text = viewModel?.value
         }
     }

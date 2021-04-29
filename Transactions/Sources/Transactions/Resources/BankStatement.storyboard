@@ -127,11 +127,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYL-JE-vAX">
-                                                    <rect key="frame" x="269.33333333333331" y="13" width="97.666666666666686" height="33"/>
+                                                    <rect key="frame" x="271.66666666666669" y="15" width="95.333333333333314" height="29"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="R$ 0.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lw-iE-WTw">
-                                                            <rect key="frame" x="8" y="8" width="81.666666666666671" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                            <rect key="frame" x="8" y="6" width="79.333333333333329" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -140,12 +140,12 @@
                                                     <constraints>
                                                         <constraint firstItem="5Lw-iE-WTw" firstAttribute="centerX" secondItem="iYL-JE-vAX" secondAttribute="centerX" id="Auo-a2-7R0"/>
                                                         <constraint firstItem="5Lw-iE-WTw" firstAttribute="centerY" secondItem="iYL-JE-vAX" secondAttribute="centerY" id="Fce-2S-cEE"/>
-                                                        <constraint firstAttribute="bottom" secondItem="5Lw-iE-WTw" secondAttribute="bottom" constant="8" id="Fkk-PW-RMD"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5Lw-iE-WTw" secondAttribute="bottom" constant="6" id="Fkk-PW-RMD"/>
                                                         <constraint firstAttribute="trailing" secondItem="5Lw-iE-WTw" secondAttribute="trailing" constant="8" id="Kro-tm-SGp"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <integer key="value" value="3"/>
+                                                            <integer key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -165,6 +165,7 @@
                                             <outlet property="lb_subtitle" destination="XkB-wk-s0b" id="jTO-m6-eQT"/>
                                             <outlet property="lb_title" destination="m8c-rr-0TG" id="rqK-CI-sax"/>
                                             <outlet property="lb_value" destination="5Lw-iE-WTw" id="taP-NI-xPx"/>
+                                            <outlet property="view_value" destination="iYL-JE-vAX" id="XR6-hV-zaZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

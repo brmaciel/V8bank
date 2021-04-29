@@ -17,12 +17,12 @@ class BankStatementPresenter {
     func formatDate(_ dateString: String) -> String? {
         // TODO: format date
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyy-MM-dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = TimeZone(identifier: "UTC")
         
         guard let date = formatter.date(from: dateString) else { return nil }
         
-        formatter.dateFormat = "dd MMM"
+        formatter.dateFormat = "dd MMM, yyyy"
         
         return formatter.string(from: date)
     }
@@ -43,6 +43,14 @@ class BankStatementPresenter {
         return currencyFormatter.string(from: NSNumber(value: value))!
     }
     
+    func getStatementItemsVM(for groupDate: TRStatementGroupDate) -> [BankStatementModels.ViewModel.StatementViewModel] {
+         return groupDate.items.map( { item in
+            let value = formatAsCurrency(abs(item.value), includeCurrencySymbol: true)
+            
+            return BankStatementModels.ViewModel.StatementViewModel(title: item.title, subtitle: item.subtitle, value: value, isIncome: item.value >= 0)
+        } )
+    }
+    
 }
 
 
@@ -58,11 +66,12 @@ extension BankStatementPresenter: BankStatementPresenterProtocol {
     
     func presentStatement(response: BankStatementModels.Response) {
         let balance = formatAsCurrency(response.statement.balance, includeCurrencySymbol: false)
-        let statement: [BankStatementModels.ViewModel.StatementViewModel] = response.statement.items.map( { item in
-            let formattedDate = formatDate(item.date) ?? item.date
-            let value = formatAsCurrency(item.value, includeCurrencySymbol: true)
+        let statement: [(date: String, statement: [BankStatementModels.ViewModel.StatementViewModel])] = response.statement.items.map( { groupDate in
             
-            return BankStatementModels.ViewModel.StatementViewModel(title: item.title, subtitle: item.subtitle, date: formattedDate, value: value)
+            let formattedDate = formatDate(groupDate.date) ?? groupDate.date
+            let items = getStatementItemsVM(for: groupDate)
+            
+            return (date: formattedDate, statement: items)
         } )
         
         let viewModel = BankStatementModels.ViewModel(balance: balance, statement: statement)
