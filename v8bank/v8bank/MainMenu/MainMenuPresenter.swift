@@ -15,32 +15,6 @@ class MainMenuPresenter {
     
     // MARK: - Methods
     
-    func getTitle(from balanceType: Int) -> String {
-        switch balanceType {
-            case 1:
-                return "Saldo"
-            case 2:
-                return "Fatura Atual"
-            case 3:
-                return "Investimentos"
-            default:
-                return ""
-        }
-    }
-    
-    func getActionName(from balanceType: Int) -> String {
-        switch balanceType {
-            case 1:
-                return "EXTRATO"
-            case 2:
-                return "FATURA"
-            case 3:
-                return "DETALHES"
-            default:
-                return ""
-        }
-    }
-    
     func formatAsCurrency(_ value: Double) -> String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.locale = Locale(identifier: "pt_br")
@@ -64,12 +38,9 @@ extension MainMenuPresenter: MainMenuPresenterProtocol {
     
     func presentBalances(response: MainMenuModels.Response) {
         let balances: [MainMenuModels.ViewModel.Balances.BalanceViewModel] =  response.balances.map( { balance in
-            let title = getTitle(from: balance.balanceType)
             let balanceAmount = formatAsCurrency(balance.amount)
-            let actionName = getActionName(from: balance.balanceType)
-            let action = BankStatementRouter.createModule
             
-            let viewModel = MainMenuModels.ViewModel.Balances.BalanceViewModel(title: title, balance: balanceAmount, actionName: actionName, action: action)
+            let viewModel = MainMenuModels.ViewModel.Balances.BalanceViewModel(title: balance.title, balance: balanceAmount, actionName: balance.actionName, action: balance.action)
             
             return viewModel
         } )

@@ -27,12 +27,12 @@ class MainMenuInteractor {
         })
     }
     
-    func manageBalanceResponse(_ balances: [BalancesStruct]) {
+    func manageBalanceResponse(_ balances: BalancesResponse) {
         guard !balances.isEmpty else {
             // TODO: present empty balance error
             return }
         
-        let response = MainMenuModels.Response(balances: balances)
+        let response = MainMenuModels.Response(balances: balances.allBalances)
         presenter?.presentBalances(response: response)
     }
     

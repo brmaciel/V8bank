@@ -23,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xS3-Ul-UYO" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1238"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1174"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUC-04-lQj" userLabel="Header View">
-                                                <rect key="frame" x="0.0" y="54" width="375" height="260"/>
+                                                <rect key="frame" x="0.0" y="62" width="375" height="260"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhF-Ts-BWc">
                                                         <rect key="frame" x="15.999999999999996" y="31" width="63.666666666666657" height="26.333333333333329"/>
@@ -102,7 +102,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf4-nv-nKp" customClass="UpperRoundedCard" customModule="CommonUI">
-                                                <rect key="frame" x="0.0" y="270" width="375" height="968"/>
+                                                <rect key="frame" x="0.0" y="270" width="375" height="904"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Z-kp-0CU" customClass="BorderedView" customModule="CommonUI">
                                                         <rect key="frame" x="162.66666666666666" y="24" width="50" height="4"/>
@@ -140,15 +140,22 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZU-Dd-K1G" userLabel="Spacer">
+                                                        <rect key="frame" x="0.0" y="154" width="375" height="8"/>
+                                                        <color key="backgroundColor" name="v8lightGray"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="8" id="ieJ-bX-rYh"/>
+                                                        </constraints>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrO-YG-8Cn">
-                                                        <rect key="frame" x="100" y="158" width="175" height="360"/>
+                                                        <rect key="frame" x="100" y="174" width="175" height="320"/>
                                                         <color key="backgroundColor" systemColor="systemRedColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="360" id="bsn-Vz-Nfo"/>
+                                                            <constraint firstAttribute="height" constant="320" id="bsn-Vz-Nfo"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vM-PI-Ite">
-                                                        <rect key="frame" x="100" y="568" width="175" height="360"/>
+                                                        <rect key="frame" x="100" y="544" width="175" height="320"/>
                                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                                     </view>
                                                 </subviews>
@@ -158,11 +165,14 @@
                                                     <constraint firstItem="1vM-PI-Ite" firstAttribute="leading" secondItem="hrO-YG-8Cn" secondAttribute="leading" id="78G-ro-4OX"/>
                                                     <constraint firstItem="Y5Z-kp-0CU" firstAttribute="centerX" secondItem="Gf4-nv-nKp" secondAttribute="centerX" id="AZW-Zk-nUl"/>
                                                     <constraint firstItem="1vM-PI-Ite" firstAttribute="top" secondItem="hrO-YG-8Cn" secondAttribute="bottom" constant="50" id="FPI-MD-gs5"/>
+                                                    <constraint firstItem="JZU-Dd-K1G" firstAttribute="top" secondItem="j83-sD-Ajm" secondAttribute="bottom" constant="12" id="FRm-zE-GpN"/>
+                                                    <constraint firstItem="JZU-Dd-K1G" firstAttribute="leading" secondItem="Gf4-nv-nKp" secondAttribute="leading" id="Hpg-Tt-zlN"/>
                                                     <constraint firstAttribute="trailing" secondItem="j83-sD-Ajm" secondAttribute="trailing" id="HsA-sP-3dA"/>
                                                     <constraint firstItem="1vM-PI-Ite" firstAttribute="height" secondItem="hrO-YG-8Cn" secondAttribute="height" id="OJN-03-Qd7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JZU-Dd-K1G" secondAttribute="trailing" id="PiX-u5-cPE"/>
                                                     <constraint firstItem="Y5Z-kp-0CU" firstAttribute="top" secondItem="Gf4-nv-nKp" secondAttribute="top" constant="24" id="UDq-uu-kCB"/>
                                                     <constraint firstItem="hrO-YG-8Cn" firstAttribute="leading" secondItem="Gf4-nv-nKp" secondAttribute="leading" constant="100" id="X7L-xo-bcz"/>
-                                                    <constraint firstItem="hrO-YG-8Cn" firstAttribute="top" secondItem="j83-sD-Ajm" secondAttribute="bottom" constant="16" id="fjY-Lu-caP"/>
+                                                    <constraint firstItem="hrO-YG-8Cn" firstAttribute="top" secondItem="JZU-Dd-K1G" secondAttribute="bottom" constant="12" id="fjY-Lu-caP"/>
                                                     <constraint firstItem="hrO-YG-8Cn" firstAttribute="centerX" secondItem="Gf4-nv-nKp" secondAttribute="centerX" id="j2x-qG-uYP"/>
                                                     <constraint firstItem="1vM-PI-Ite" firstAttribute="centerX" secondItem="Gf4-nv-nKp" secondAttribute="centerX" id="kHj-mC-BBW"/>
                                                     <constraint firstItem="j83-sD-Ajm" firstAttribute="top" secondItem="Y5Z-kp-0CU" secondAttribute="bottom" constant="32" id="ods-Si-aKk"/>

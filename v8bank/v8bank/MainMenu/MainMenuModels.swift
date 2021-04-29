@@ -16,7 +16,7 @@ enum MainMenuModels {
     
     /// Object passed from Interactor to Presenter
     struct Response {
-        var balances: [BalancesStruct]
+        var balances: [BalanceProtocol]
     }
     
     /// Object passed from Presenter to View
