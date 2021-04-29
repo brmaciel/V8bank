@@ -63,22 +63,32 @@ extension MainMenuPresenter: MainMenuPresenterProtocol {
     }
     
     func presentBalances(response: MainMenuModels.Response) {
-        let balances: [MainMenuModels.ViewModel.BalanceViewModel] =  response.balances.map( { balance in
+        let balances: [MainMenuModels.ViewModel.Balances.BalanceViewModel] =  response.balances.map( { balance in
             let title = getTitle(from: balance.balanceType)
             let balanceAmount = formatAsCurrency(balance.amount)
             let actionName = getActionName(from: balance.balanceType)
             let action = BankStatementRouter.createModule
             
-            let viewModel = MainMenuModels.ViewModel.BalanceViewModel(title: title, balance: balanceAmount, actionName: actionName, action: action)
+            let viewModel = MainMenuModels.ViewModel.Balances.BalanceViewModel(title: title, balance: balanceAmount, actionName: actionName, action: action)
             
             return viewModel
         } )
         
-        let viewModel = MainMenuModels.ViewModel(balances: balances)
+        let viewModel = MainMenuModels.ViewModel.Balances(balances: balances)
         view?.showBalances(viewModel: viewModel)
     }
     
     func presentError() {
         view?.showError()
+    }
+    
+    func presentOperationOptions() {
+        let operations = [
+            MainMenuModels.ViewModel.OperationOptions.OperationOptionViewModel(image: .statementIcon, name: "Ver Extrato", action: BankStatementRouter.createModule),
+            MainMenuModels.ViewModel.OperationOptions.OperationOptionViewModel(image: .eyeOpenBlack, name: "todo:\nCartão", action: BankStatementRouter.createModule)
+        ]
+        
+        let viewModel = MainMenuModels.ViewModel.OperationOptions(operations: operations)
+        view?.showOperationOptions(viewModel: viewModel)
     }
 }

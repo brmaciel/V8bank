@@ -17,7 +17,7 @@ class BalanceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgview_arrow: UIImageView!
     
     // MARK: Properties
-    var viewModel: MainMenuModels.ViewModel.BalanceViewModel? {
+    var viewModel: MainMenuModels.ViewModel.Balances.BalanceViewModel? {
         didSet {
             lb_title.text = viewModel?.title
             lb_balance.text = viewModel?.presentedBalance

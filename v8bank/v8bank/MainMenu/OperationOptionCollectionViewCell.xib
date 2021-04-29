@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="operationOptionCell" id="gTV-IL-0wX" customClass="OperationOptionCollectionViewCell" customModule="v8bank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="82" height="82"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="82" height="82"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ll2-Gp-acX" customClass="BorderedView" customModule="CommonUI">
+                        <rect key="frame" x="19" y="0.0" width="44" height="44"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eQx-KA-Z52">
+                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="v8lightGray"/>
+                        <constraints>
+                            <constraint firstItem="eQx-KA-Z52" firstAttribute="leading" secondItem="ll2-Gp-acX" secondAttribute="leading" id="Ibs-wc-HX7"/>
+                            <constraint firstAttribute="height" constant="44" id="KC6-N7-5Y0"/>
+                            <constraint firstAttribute="width" secondItem="ll2-Gp-acX" secondAttribute="height" id="PpR-yN-2yr"/>
+                            <constraint firstItem="eQx-KA-Z52" firstAttribute="top" secondItem="ll2-Gp-acX" secondAttribute="top" id="Qq7-Lb-qRS"/>
+                            <constraint firstItem="eQx-KA-Z52" firstAttribute="centerY" secondItem="ll2-Gp-acX" secondAttribute="centerY" id="rBa-Xc-xJo"/>
+                            <constraint firstItem="eQx-KA-Z52" firstAttribute="centerX" secondItem="ll2-Gp-acX" secondAttribute="centerX" id="teb-wM-JE3"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="24"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOZ-Fd-r7R">
+                        <rect key="frame" x="0.0" y="52" width="82" height="30"/>
+                        <string key="text">Operation
+Operation</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" name="v8darkGray"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="nOZ-Fd-r7R" firstAttribute="top" secondItem="ll2-Gp-acX" secondAttribute="bottom" constant="8" id="6PB-gm-5hK"/>
+                <constraint firstItem="ll2-Gp-acX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="88K-Lt-2CF"/>
+                <constraint firstItem="nOZ-Fd-r7R" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CYa-Hh-iU7"/>
+                <constraint firstAttribute="trailing" secondItem="nOZ-Fd-r7R" secondAttribute="trailing" id="UCT-Kz-fL1"/>
+                <constraint firstAttribute="bottom" secondItem="nOZ-Fd-r7R" secondAttribute="bottom" id="ohn-ux-afF"/>
+                <constraint firstItem="ll2-Gp-acX" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="shx-ID-JL3"/>
+            </constraints>
+            <size key="customSize" width="193" height="157"/>
+            <connections>
+                <outlet property="imgview_operation" destination="eQx-KA-Z52" id="uWC-rM-wn9"/>
+                <outlet property="lb_operationName" destination="nOZ-Fd-r7R" id="xyf-DZ-XWk"/>
+            </connections>
+            <point key="canvasLocation" x="244.20289855072465" y="174.44196428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="v8darkGray">
+            <color red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="v8lightGray">
+            <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

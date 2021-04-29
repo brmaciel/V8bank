@@ -20,6 +20,8 @@ protocol MainMenuPresenterProtocol: AnyObject {
     
     func presentBalances(response: MainMenuModels.Response)
     func presentError()
+    
+    func presentOperationOptions()
 }
 
 /// Presenter -> View
@@ -27,6 +29,8 @@ protocol MainMenuPresenterDelegate: AnyObject {
     func startRequest()
     func finishRequest()
     
-    func showBalances(viewModel: MainMenuModels.ViewModel)
+    func showBalances(viewModel: MainMenuModels.ViewModel.Balances)
     func showError()
+    
+    func showOperationOptions(viewModel: MainMenuModels.ViewModel.OperationOptions)
 }

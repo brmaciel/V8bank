@@ -15,10 +15,12 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var collectionView_balances: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var view_error: V8GenericErrorView!
+    @IBOutlet weak var collectionView_operationOptions: UICollectionView!
     
     // MARK: Properties
     var interactor: MainMenuInteractorProtocol?
-    var viewModel: MainMenuModels.ViewModel?
+    var balancesViewModel: MainMenuModels.ViewModel.Balances?
+    var operationOptionViewModel: MainMenuModels.ViewModel.OperationOptions?
     
     
     // MARK: View Lifecycle
@@ -35,27 +37,42 @@ class MainMenuViewController: UIViewController {
     private func delegates() {
         collectionView_balances.delegate = self
         collectionView_balances.dataSource = self
+        collectionView_operationOptions.delegate = self
+        collectionView_operationOptions.dataSource = self
     }
         
     private func setupView() {
         lb_userName.text = "Bruno"
         
         collectionView_balances.register(UINib(nibName: "BalanceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "balanceCell")
-        setCollectionViewCellSize(for: collectionView_balances)
+        setBalanceCollectionViewCellSize()
         view_error.setTryAgainAction(#selector(tryAgainFetchingBalances), target: self)
+        
+        collectionView_operationOptions.register(UINib(nibName: "OperationOptionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "operationOptionCell")
+        setOperationOptionsCollectionViewCellSize()
         
         interactor?.viewDidLoad()
     }
     
-    private func setCollectionViewCellSize(for collectionView: UICollectionView) {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    private func setBalanceCollectionViewCellSize() {
+        let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 40,
-                                 height: collectionView.frame.height)
+                                 height: collectionView_balances.frame.height)
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 8
-        collectionView.collectionViewLayout = layout
+        collectionView_balances.collectionViewLayout = layout
+    }
+    
+    private func setOperationOptionsCollectionViewCellSize() {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        layout.itemSize = CGSize(width: 72, height: 82)
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 8
+        collectionView_operationOptions.collectionViewLayout = layout
     }
     
     
@@ -87,14 +104,19 @@ extension MainMenuViewController: MainMenuPresenterDelegate {
         activityIndicator.stopAnimating()
     }
     
-    func showBalances(viewModel: MainMenuModels.ViewModel) {
-        self.viewModel = viewModel
+    func showBalances(viewModel: MainMenuModels.ViewModel.Balances) {
+        balancesViewModel = viewModel
         collectionView_balances.reloadData()
     }
     
     func showError() {
         view_error.message = "Fail to retrieve balances\nTry again later"
         view_error.show()
+    }
+    
+    func showOperationOptions(viewModel: MainMenuModels.ViewModel.OperationOptions) {
+        operationOptionViewModel = viewModel
+        collectionView_operationOptions.reloadData()
     }
 }
 
@@ -107,14 +129,42 @@ extension MainMenuViewController: BalanceCellDelegate {
 // MARK: - CollectionView Methods
 extension MainMenuViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.numBalances ?? 0
+        switch collectionView {
+            case collectionView_balances:
+                return balancesViewModel?.numBalances ?? 0
+            case collectionView_operationOptions:
+                return operationOptionViewModel?.numOperations ?? 0
+            default:
+                return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "balanceCell", for: indexPath) as! BalanceCollectionViewCell
-        cell.viewModel = viewModel?.balance(at: indexPath.row)
-        cell.delegate = self
+        switch collectionView {
+            case collectionView_balances:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "balanceCell", for: indexPath) as! BalanceCollectionViewCell
+                cell.viewModel = balancesViewModel?.balance(at: indexPath.row)
+                cell.delegate = self
+                
+                return cell
+                
+            case collectionView_operationOptions:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "operationOptionCell", for: indexPath) as! OperationOptionCollectionViewCell
+                cell.viewModel = operationOptionViewModel?.operation(at: indexPath.row)
+                
+                return cell
+                
+            default:
+                return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard
+            collectionView == collectionView_operationOptions,
+            let viewController = operationOptionViewModel?.operation(at: indexPath.row)?.action()
+            else { return }
         
-        return cell
+        present(viewController, animated: true, completion: nil)
     }
 }

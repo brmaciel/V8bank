@@ -15,4 +15,5 @@ extension UIImage {
     public static var eyeOpenBlack = UIImage(named: "ic_open_eye_black", in: Bundle.module, compatibleWith: nil)!
     public static var eyeClosedBlack = UIImage(named: "ic_closed_eye_black", in: Bundle.module, compatibleWith: nil)!
     
+    public static var statementIcon = UIImage(named: "ic_statement", in: Bundle.module, compatibleWith: nil)!
 }

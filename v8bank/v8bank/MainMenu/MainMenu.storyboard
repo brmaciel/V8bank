@@ -7,6 +7,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xS3-Ul-UYO" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1158"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1238"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUC-04-lQj" userLabel="Header View">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                                                <rect key="frame" x="0.0" y="54" width="375" height="260"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhF-Ts-BWc">
                                                         <rect key="frame" x="15.999999999999996" y="31" width="63.666666666666657" height="26.333333333333329"/>
@@ -101,7 +102,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf4-nv-nKp" customClass="UpperRoundedCard" customModule="CommonUI">
-                                                <rect key="frame" x="0.0" y="270" width="375" height="888"/>
+                                                <rect key="frame" x="0.0" y="270" width="375" height="968"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Z-kp-0CU" customClass="BorderedView" customModule="CommonUI">
                                                         <rect key="frame" x="162.66666666666666" y="24" width="50" height="4"/>
@@ -116,29 +117,55 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j83-sD-Ajm">
+                                                        <rect key="frame" x="0.0" y="60" width="375" height="82"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="82" id="z21-gs-7OO"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="q2c-OB-KFe">
+                                                            <size key="itemSize" width="96" height="96"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="H8b-bE-rdQ">
+                                                                <rect key="frame" x="0.0" y="-7" width="96" height="96"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4kY-CF-738">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </collectionViewCellContentView>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrO-YG-8Cn">
-                                                        <rect key="frame" x="100" y="78" width="175" height="360"/>
+                                                        <rect key="frame" x="100" y="158" width="175" height="360"/>
                                                         <color key="backgroundColor" systemColor="systemRedColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="360" id="bsn-Vz-Nfo"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vM-PI-Ite">
-                                                        <rect key="frame" x="100" y="488" width="175" height="360"/>
+                                                        <rect key="frame" x="100" y="568" width="175" height="360"/>
                                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="j83-sD-Ajm" firstAttribute="leading" secondItem="Gf4-nv-nKp" secondAttribute="leading" id="6EC-Nr-0JD"/>
                                                     <constraint firstItem="1vM-PI-Ite" firstAttribute="leading" secondItem="hrO-YG-8Cn" secondAttribute="leading" id="78G-ro-4OX"/>
                                                     <constraint firstItem="Y5Z-kp-0CU" firstAttribute="centerX" secondItem="Gf4-nv-nKp" secondAttribute="centerX" id="AZW-Zk-nUl"/>
                                                     <constraint firstItem="1vM-PI-Ite" firstAttribute="top" secondItem="hrO-YG-8Cn" secondAttribute="bottom" constant="50" id="FPI-MD-gs5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="j83-sD-Ajm" secondAttribute="trailing" id="HsA-sP-3dA"/>
                                                     <constraint firstItem="1vM-PI-Ite" firstAttribute="height" secondItem="hrO-YG-8Cn" secondAttribute="height" id="OJN-03-Qd7"/>
                                                     <constraint firstItem="Y5Z-kp-0CU" firstAttribute="top" secondItem="Gf4-nv-nKp" secondAttribute="top" constant="24" id="UDq-uu-kCB"/>
                                                     <constraint firstItem="hrO-YG-8Cn" firstAttribute="leading" secondItem="Gf4-nv-nKp" secondAttribute="leading" constant="100" id="X7L-xo-bcz"/>
-                                                    <constraint firstItem="hrO-YG-8Cn" firstAttribute="top" secondItem="Y5Z-kp-0CU" secondAttribute="bottom" constant="50" id="fjY-Lu-caP"/>
+                                                    <constraint firstItem="hrO-YG-8Cn" firstAttribute="top" secondItem="j83-sD-Ajm" secondAttribute="bottom" constant="16" id="fjY-Lu-caP"/>
                                                     <constraint firstItem="hrO-YG-8Cn" firstAttribute="centerX" secondItem="Gf4-nv-nKp" secondAttribute="centerX" id="j2x-qG-uYP"/>
                                                     <constraint firstItem="1vM-PI-Ite" firstAttribute="centerX" secondItem="Gf4-nv-nKp" secondAttribute="centerX" id="kHj-mC-BBW"/>
+                                                    <constraint firstItem="j83-sD-Ajm" firstAttribute="top" secondItem="Y5Z-kp-0CU" secondAttribute="bottom" constant="32" id="ods-Si-aKk"/>
                                                     <constraint firstAttribute="bottom" secondItem="1vM-PI-Ite" secondAttribute="bottom" constant="40" id="ymL-XS-fMn"/>
                                                 </constraints>
                                             </view>
@@ -186,6 +213,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="2FJ-hv-5pB" id="Q68-bg-CwO"/>
                         <outlet property="collectionView_balances" destination="EVN-qb-va7" id="Wm6-zw-4pZ"/>
+                        <outlet property="collectionView_operationOptions" destination="j83-sD-Ajm" id="UE3-YJ-wl5"/>
                         <outlet property="lb_userName" destination="BhF-Ts-BWc" id="yMj-Nx-XcR"/>
                         <outlet property="view_error" destination="t6O-2y-SvY" id="Fyh-Rd-Q9g"/>
                     </connections>

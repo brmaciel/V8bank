@@ -43,6 +43,7 @@ class MainMenuInteractor {
 extension MainMenuInteractor: MainMenuInteractorProtocol {
     func viewDidLoad() {
         fetchBalances()
+        presenter?.presentOperationOptions()
     }
     
     func tryAgainFetchingBalances() {
