@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1174"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUC-04-lQj" userLabel="Header View">
-                                                <rect key="frame" x="0.0" y="62" width="375" height="260"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhF-Ts-BWc">
                                                         <rect key="frame" x="15.999999999999996" y="31" width="63.666666666666657" height="26.333333333333329"/>
@@ -225,6 +225,7 @@
                         <outlet property="collectionView_balances" destination="EVN-qb-va7" id="Wm6-zw-4pZ"/>
                         <outlet property="collectionView_operationOptions" destination="j83-sD-Ajm" id="UE3-YJ-wl5"/>
                         <outlet property="lb_userName" destination="BhF-Ts-BWc" id="yMj-Nx-XcR"/>
+                        <outlet property="scrollView" destination="MRd-BI-uc6" id="YLh-CC-oer"/>
                         <outlet property="view_error" destination="t6O-2y-SvY" id="Fyh-Rd-Q9g"/>
                     </connections>
                 </viewController>

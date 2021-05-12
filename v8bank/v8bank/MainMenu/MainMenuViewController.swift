@@ -11,16 +11,28 @@ import CommonUI
 class MainMenuViewController: UIViewController {
     
     // MARK: Outlets
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var lb_userName: UILabel!
     @IBOutlet weak var collectionView_balances: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var view_error: V8GenericErrorView!
     @IBOutlet weak var collectionView_operationOptions: UICollectionView!
+    private lazy var view_hiddenHeader: UIView = {
+        let viewHeight: CGFloat = 60 + self.view.safeAreaInsets.top
+        let view = UIView(frame: CGRect(x: 0.0,
+                                        y: 0 - viewHeight / 2,
+                                        width: self.view.frame.width,
+                                        height: viewHeight))
+        view.backgroundColor = .white
+        view.isHidden = true
+        return view
+    }()
     
     // MARK: Properties
     var interactor: MainMenuInteractorProtocol?
     var balancesViewModel: MainMenuModels.ViewModel.Balances?
     var operationOptionViewModel: MainMenuModels.ViewModel.OperationOptions?
+    private var allowHideHiddenHeaderView: Bool = false
     
     
     // MARK: View Lifecycle
@@ -31,10 +43,18 @@ class MainMenuViewController: UIViewController {
         setupView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        view.addSubview(view_hiddenHeader)
+        addShadowToHeaderView()
+    }
+    
     
     // MARK: - Setup View Methods
     
     private func delegates() {
+        scrollView.delegate = self
         collectionView_balances.delegate = self
         collectionView_balances.dataSource = self
         collectionView_operationOptions.delegate = self
@@ -75,9 +95,37 @@ class MainMenuViewController: UIViewController {
         collectionView_operationOptions.collectionViewLayout = layout
     }
     
+    private func addShadowToHeaderView() {
+        view_hiddenHeader.layer.shadowColor = UIColor.black.cgColor
+        view_hiddenHeader.layer.shadowOpacity = 0.2
+        view_hiddenHeader.layer.shadowOffset = CGSize(width: 0, height: 1)
+        view_hiddenHeader.layer.shadowRadius = 2
+    }
+    
     
     // MARK: - Methods
     
+    func showHiddenHeaderView() {
+        guard view_hiddenHeader.isHidden else { return }
+        view_hiddenHeader.isHidden = false
+        allowHideHiddenHeaderView = false
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view_hiddenHeader.center.y = self.view_hiddenHeader.frame.height / 2.0
+        } completion: { _ in
+            self.allowHideHiddenHeaderView = true
+        }
+    }
+    
+    func hideHiddenHeaderView() {
+        guard allowHideHiddenHeaderView else { return }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view_hiddenHeader.center.y = 0 - self.view_hiddenHeader.frame.height / 2.0
+        } completion: { _ in
+            self.view_hiddenHeader.isHidden = true
+        }
+    }
     
     
     // MARK: - Button Actions
@@ -166,5 +214,14 @@ extension MainMenuViewController: UICollectionViewDelegate, UICollectionViewData
             else { return }
         
         present(viewController, animated: true, completion: nil)
+    }
+}
+
+extension MainMenuViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView == self.scrollView else { return }
+        
+        if scrollView.contentOffset.y >= 270 { showHiddenHeaderView() }
+        else if scrollView.contentOffset.y < 240 { hideHiddenHeaderView() }
     }
 }
