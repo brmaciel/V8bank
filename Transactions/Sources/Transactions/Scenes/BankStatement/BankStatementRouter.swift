@@ -33,8 +33,8 @@ public class BankStatementRouter {
     
     // MARK: - Routing
     
-    func goToTransactionDetails() {
-        let destinationVC = TRTransactionDetailsRouter.createModule()
+    func goToTransactionDetails(data: BankStatementModels.DataStore) {
+        let destinationVC = TRTransactionDetailsRouter.createModule(dependency: data)
         view?.present(destinationVC, animated: true, completion: nil)
     }
     

@@ -15,10 +15,10 @@ protocol TRTransactionDetailsInteractorProtocol: AnyObject {
 
 /// Interactor -> Presenter
 protocol TRTransactionDetailsPresenterProtocol: AnyObject {
-    func presentDetails()
+    func presentDetails(response: TRTransactionDetailsModels.Response)
 }
 
 /// Presenter -> View
 protocol TRTransactionDetailsPresenterDelegate: AnyObject {
-    func showDetails()
+    func showDetails(viewModel: TRTransactionDetailsModels.ViewModel)
 }

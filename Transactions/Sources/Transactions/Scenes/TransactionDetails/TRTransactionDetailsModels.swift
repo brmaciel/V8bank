@@ -16,12 +16,16 @@ enum TRTransactionDetailsModels {
     
     /// Object passed from Interactor to Presenter
     struct Response {
-        
+        let transaction: TRStatementItem
+        let date: String
     }
     
     /// Object passed from Presenter to View
     struct ViewModel {
-        
+        let dateTime: String
+        let title: String
+        let subtitle: String
+        let value: String
     }
     
     /// Data Store

@@ -26,6 +26,14 @@ class TRTransactionDetailsViewController: UIViewController {
         setupView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        }
+    }
+    
     
     // MARK: - Setup View Methods
         
@@ -41,6 +49,7 @@ class TRTransactionDetailsViewController: UIViewController {
     // MARK: - Button Actions
     
     @IBAction func tapExitButton(_ button: UIButton) {
+        view.backgroundColor = .clear
         interactor?.closeScreen()
     }
     
@@ -49,7 +58,10 @@ class TRTransactionDetailsViewController: UIViewController {
 
 // MARK: - Access from Presenter
 extension TRTransactionDetailsViewController: TRTransactionDetailsPresenterDelegate {
-    func showDetails() {
-        
+    func showDetails(viewModel: TRTransactionDetailsModels.ViewModel) {
+        lb_dateTime.text = viewModel.dateTime
+        lb_transactionTitle.text = viewModel.title
+        lb_transactionSubtitle.text = viewModel.subtitle
+        lb_transactionValue.text = viewModel.value
     }
 }

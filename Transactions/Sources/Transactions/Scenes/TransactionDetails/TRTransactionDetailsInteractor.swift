@@ -12,6 +12,16 @@ class TRTransactionDetailsInteractor {
     var presenter: TRTransactionDetailsPresenterProtocol?
     var router: TRTransactionDetailsRouter?
     
+    let transaction: TRStatementItem
+    let date: String
+    
+    
+    // MARK: - Constructor
+    init(model: TRTransactionDetailsDependency) {
+        self.transaction = model.transaction
+        self.date = model.date
+    }
+    
     
     // MARK: - Methods
     
@@ -23,7 +33,8 @@ class TRTransactionDetailsInteractor {
 // MARK: - Access from View
 extension TRTransactionDetailsInteractor: TRTransactionDetailsInteractorProtocol {
     func viewDidLoad() {
-        presenter?.presentDetails()
+        let response = TRTransactionDetailsModels.Response(transaction: transaction, date: date)
+        presenter?.presentDetails(response: response)
     }
     
     func closeScreen() {

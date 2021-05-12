@@ -78,8 +78,9 @@ enum BankStatementModels {
     }
     
     /// Data Store
-    struct DataStore {
-        
+    struct DataStore: TRTransactionDetailsDependency {
+        let transaction: TRStatementItem
+        let date: String
     }
 }
 

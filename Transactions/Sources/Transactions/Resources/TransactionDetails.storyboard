@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RP2-8m-lU5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXV-vu-nr2">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXV-vu-nr2" customClass="UpperRoundedCard" customModule="CommonUI">
                                 <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ea-4N-pnY">
-                                        <rect key="frame" x="12" y="8" width="30" height="30"/>
+                                        <rect key="frame" x="12" y="12" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="6ja-We-2VS"/>
                                             <constraint firstAttribute="width" secondItem="4Ea-4N-pnY" secondAttribute="height" id="C8Q-UK-KEa"/>
@@ -32,25 +33,25 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dd/MM/yyyy - HH:mm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYj-ad-88W">
-                                        <rect key="frame" x="139" y="15" width="136" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <rect key="frame" x="134.5" y="18.5" width="145" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <color key="textColor" name="v8mediumGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3w-Xk-JKi">
-                                        <rect key="frame" x="32" y="102" width="350" height="16"/>
+                                        <rect key="frame" x="32" y="106" width="350" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apy-I8-eF4">
-                                        <rect key="frame" x="32" y="126" width="350" height="16"/>
+                                        <rect key="frame" x="32" y="130" width="350" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="v8mediumGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZIT-F1-RVg">
-                                        <rect key="frame" x="147" y="222" width="120.5" height="26.5"/>
+                                        <rect key="frame" x="148.5" y="210" width="117.5" height="26.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ab-vY-AfK">
                                                 <rect key="frame" x="0.0" y="0.0" width="16" height="26.5"/>
@@ -59,8 +60,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCy-0b-7d4">
-                                                <rect key="frame" x="24" y="0.0" width="96.5" height="26.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <rect key="frame" x="24" y="0.0" width="93.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -74,11 +75,11 @@
                                     <constraint firstItem="hYj-ad-88W" firstAttribute="centerX" secondItem="xXV-vu-nr2" secondAttribute="centerX" id="6d3-aA-NAG"/>
                                     <constraint firstItem="4Ea-4N-pnY" firstAttribute="leading" secondItem="xXV-vu-nr2" secondAttribute="leading" constant="12" id="Ek3-bs-EpZ"/>
                                     <constraint firstItem="U3w-Xk-JKi" firstAttribute="top" secondItem="4Ea-4N-pnY" secondAttribute="bottom" constant="64" id="Jtp-60-Fjf"/>
-                                    <constraint firstItem="4Ea-4N-pnY" firstAttribute="top" secondItem="xXV-vu-nr2" secondAttribute="top" constant="8" id="Spo-ik-4MW"/>
+                                    <constraint firstItem="4Ea-4N-pnY" firstAttribute="top" secondItem="xXV-vu-nr2" secondAttribute="top" constant="12" id="Spo-ik-4MW"/>
                                     <constraint firstItem="apy-I8-eF4" firstAttribute="centerX" secondItem="xXV-vu-nr2" secondAttribute="centerX" id="Ynf-ad-vhd"/>
                                     <constraint firstItem="U3w-Xk-JKi" firstAttribute="centerX" secondItem="xXV-vu-nr2" secondAttribute="centerX" id="c3e-Dj-9os"/>
                                     <constraint firstItem="apy-I8-eF4" firstAttribute="top" secondItem="U3w-Xk-JKi" secondAttribute="bottom" constant="8" id="h1V-Uh-uhe"/>
-                                    <constraint firstItem="ZIT-F1-RVg" firstAttribute="top" secondItem="apy-I8-eF4" secondAttribute="bottom" constant="80" id="hio-LV-Toh"/>
+                                    <constraint firstItem="ZIT-F1-RVg" firstAttribute="top" secondItem="apy-I8-eF4" secondAttribute="bottom" constant="64" id="hio-LV-Toh"/>
                                     <constraint firstItem="apy-I8-eF4" firstAttribute="leading" secondItem="xXV-vu-nr2" secondAttribute="leading" constant="32" id="jsr-ov-CR4"/>
                                     <constraint firstItem="U3w-Xk-JKi" firstAttribute="leading" secondItem="xXV-vu-nr2" secondAttribute="leading" constant="32" id="zO9-8X-2CN"/>
                                 </constraints>

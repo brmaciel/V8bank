@@ -13,9 +13,9 @@ class TRTransactionDetailsRouter {
     
     
     // MARK: Create Module
-    static func createModule() -> UIViewController {
+    static func createModule(dependency: TRTransactionDetailsDependency) -> UIViewController {
         let view = UIStoryboard(name: "TransactionDetails", bundle: Bundle.module).instantiateInitialViewController() as! TRTransactionDetailsViewController
-        let interactor = TRTransactionDetailsInteractor()
+        let interactor = TRTransactionDetailsInteractor(model: dependency)
         let presenter = TRTransactionDetailsPresenter()
         let router = TRTransactionDetailsRouter()
         
@@ -35,4 +35,9 @@ class TRTransactionDetailsRouter {
         view?.dismiss(animated: true, completion: nil)
     }
     
+}
+
+protocol TRTransactionDetailsDependency {
+    var transaction: TRStatementItem { get }
+    var date: String { get }
 }

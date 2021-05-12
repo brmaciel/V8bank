@@ -54,9 +54,13 @@ extension BankStatementInteractor: BankStatementInteractorProtocol {
     }
     
     func presentTransactionDetails(section: Int, index: Int) {
-        guard let transaction = statement?.items[safe: section]?.items[index] else { return }
+        guard
+            let date = statement?.items[safe: section]?.date,
+            let transaction = statement?.items[safe: section]?.items[index]
+            else { return }
         
-        router?.goToTransactionDetails()
+        let dataStore = BankStatementModels.DataStore(transaction: transaction, date: date)
+        router?.goToTransactionDetails(data: dataStore)
     }
     
     func closeScreen() {
