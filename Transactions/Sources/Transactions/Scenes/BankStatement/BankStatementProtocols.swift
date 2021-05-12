@@ -11,6 +11,7 @@ import Foundation
 protocol BankStatementInteractorProtocol: AnyObject {
     func viewDidLoad()
     func tryAgainFetchingStatement()
+    func presentTransactionDetails(section: Int, index: Int)
     func closeScreen()
 }
 

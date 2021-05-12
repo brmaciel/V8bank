@@ -33,6 +33,11 @@ public class BankStatementRouter {
     
     // MARK: - Routing
     
+    func goToTransactionDetails() {
+        let destinationVC = TRTransactionDetailsRouter.createModule()
+        view?.present(destinationVC, animated: true, completion: nil)
+    }
+    
     func dismissView() {
         view?.dismiss(animated: true, completion: nil)
     }

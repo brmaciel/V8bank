@@ -13,6 +13,8 @@ class BankStatementInteractor {
     var router: BankStatementRouter?
     var worker: BankStatementWorker?
     
+    var statement: TRStatement?
+    
     
     // MARK: - Methods
     
@@ -28,6 +30,7 @@ class BankStatementInteractor {
     }
     
     func manageStatementResponse(_ statement: TRStatement) {
+        self.statement = statement
         let response = BankStatementModels.Response(statement: statement)
         
         guard !statement.items.isEmpty else {
@@ -48,6 +51,12 @@ extension BankStatementInteractor: BankStatementInteractorProtocol {
     
     func tryAgainFetchingStatement() {
         fetchStatement()
+    }
+    
+    func presentTransactionDetails(section: Int, index: Int) {
+        guard let transaction = statement?.items[safe: section]?.items[index] else { return }
+        
+        router?.goToTransactionDetails()
     }
     
     func closeScreen() {

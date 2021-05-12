@@ -120,7 +120,7 @@ extension BankStatementViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("TODO: present details")
+        interactor?.presentTransactionDetails(section: indexPath.section, index: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
