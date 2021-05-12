@@ -16,12 +16,12 @@ class TRTransactionDetailsPresenter {
     
     func formatDate(_ dateString: String) -> String? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
         formatter.timeZone = TimeZone(identifier: "UTC")
         
         guard let date = formatter.date(from: dateString) else { return nil }
         
-        formatter.dateFormat = "dd MMM yyyy"
+        formatter.dateFormat = "dd MMM yyyy - HH:mm"
         
         return formatter.string(from: date)
     }
@@ -48,7 +48,7 @@ class TRTransactionDetailsPresenter {
 // MARK: - Access from Interactor
 extension TRTransactionDetailsPresenter: TRTransactionDetailsPresenterProtocol {
     func presentDetails(response: TRTransactionDetailsModels.Response) {
-        let dateTime = (formatDate(response.date) ?? response.date) + " - HH:mm"
+        let dateTime = formatDate("\(response.date) \(response.transaction.time)") ?? "\(response.date) - \(response.transaction.time)"
         let value = formatAsCurrency(abs(response.transaction.value), includeCurrencySymbol: false)
         
         let viewModel = TRTransactionDetailsModels.ViewModel(dateTime: dateTime, title: response.transaction.title, subtitle: response.transaction.subtitle, value: value)

@@ -21,4 +21,5 @@ struct TRStatementItem: Decodable {
     var title: String
     var subtitle: String
     var value: Double
+    var time: String
 }

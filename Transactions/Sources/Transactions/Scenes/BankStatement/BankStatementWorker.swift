@@ -36,28 +36,28 @@ class BankStatementWorker {
     private func mockStatement() -> TRStatement {
         return TRStatement(balance: 123456.78, items: [
             TRStatementGroupDate(date: "2021-04-08", items: [
-                TRStatementItem(title: "Payment", subtitle: "Payment 05", value: -71.83),
-                TRStatementItem(title: "Income", subtitle: "Income 08", value: 897.10),
-                TRStatementItem(title: "Income", subtitle: "Income 07", value: 9.50)
+                TRStatementItem(title: "Payment", subtitle: "Payment 05", value: -71.83, time: "17:34"),
+                TRStatementItem(title: "Income", subtitle: "Income 08", value: 897.10, time: "15:33"),
+                TRStatementItem(title: "Income", subtitle: "Income 07", value: 9.50, time: "15:22")
                 ]),
             TRStatementGroupDate(date: "2021-04-05", items: [
-                TRStatementItem(title: "Payment", subtitle: "Payment 04", value: -41.23),
-                TRStatementItem(title: "Income", subtitle: "Income 06", value: 89.0),
-                TRStatementItem(title: "Income", subtitle: "Income 05", value: 49.50)
+                TRStatementItem(title: "Payment", subtitle: "Payment 04", value: -41.23, time: "11:29"),
+                TRStatementItem(title: "Income", subtitle: "Income 06", value: 89.0, time: "11:05"),
+                TRStatementItem(title: "Income", subtitle: "Income 05", value: 49.50, time: "9:01")
                 ]),
             TRStatementGroupDate(date: "2021-04-01", items: [
-                TRStatementItem(title: "Transfer", subtitle: "Transfer 03", value: -123.0),
-                TRStatementItem(title: "Income", subtitle: "Income 04", value: 4567.98),
-                TRStatementItem(title: "Payment", subtitle: "Payment 03", value: -11.22),
-                TRStatementItem(title: "Income", subtitle: "Income 03", value: 76.45),
-                TRStatementItem(title: "Income", subtitle: "Income 02", value: 12),
-                TRStatementItem(title: "Payment", subtitle: "Payment 02", value: -14.23)
+                TRStatementItem(title: "Transfer", subtitle: "Transfer 03", value: -123.0, time: "17:50"),
+                TRStatementItem(title: "Income", subtitle: "Income 04", value: 4567.98, time: "17:00"),
+                TRStatementItem(title: "Payment", subtitle: "Payment 03", value: -11.22, time: "15:09"),
+                TRStatementItem(title: "Income", subtitle: "Income 03", value: 76.45, time: "14:34"),
+                TRStatementItem(title: "Income", subtitle: "Income 02", value: 12, time: "11:04"),
+                TRStatementItem(title: "Payment", subtitle: "Payment 02", value: -14.23, time: "09:11")
                 ]),
             TRStatementGroupDate(date: "2021-03-28", items: [
-                TRStatementItem(title: "Transfer", subtitle: "Transfer 02", value: -23.40),
-                TRStatementItem(title: "Payment", subtitle: "Payment 01", value: -7.99),
-                TRStatementItem(title: "Transfer", subtitle: "Transfer 01", value: -12.78),
-                TRStatementItem(title: "Income", subtitle: "Income 01", value: 12367.78)
+                TRStatementItem(title: "Transfer", subtitle: "Transfer 02", value: -23.40, time: "10:08"),
+                TRStatementItem(title: "Payment", subtitle: "Payment 01", value: -7.99, time: "10:00"),
+                TRStatementItem(title: "Transfer", subtitle: "Transfer 01", value: -12.78, time: "09:11"),
+                TRStatementItem(title: "Income", subtitle: "Income 01", value: 12367.78, time: "08:49")
                 ])
         ])
     }
